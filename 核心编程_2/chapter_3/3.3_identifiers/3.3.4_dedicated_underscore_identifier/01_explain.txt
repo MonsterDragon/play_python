@@ -1,0 +1,3 @@
+_xxx	不用‘from module import *’
+_xxx_	系统定义名字
+_xxx	类中的私有变量名

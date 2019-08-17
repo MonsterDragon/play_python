@@ -1,0 +1,1 @@
+python3拥有keyword模块和iskeyword()函数和kwlist列表
