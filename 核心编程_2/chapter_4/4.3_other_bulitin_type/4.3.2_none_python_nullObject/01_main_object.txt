@@ -1,0 +1,4 @@
+python有一个特殊的类型被称为Null对象或者NoneType，他只有一个值那就是None
+>>> type(None)
+<class 'NoneType'>
+None没有什么属性，它的布尔值总是False
