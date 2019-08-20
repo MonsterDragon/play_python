@@ -1,0 +1,1 @@
+布尔逻辑操作符and、or和not的优先级是比较操作符>not>and>or
