@@ -1,0 +1,20 @@
+python提供的一些内建函数用于基本对象类型
+1、cmp()比较函数，cmp(a, b)
+若a<b则返回-1
+若a=b则返回0
+若a>b则返回1
+2、repr()
+3、str()
+4、``
+repr() str() ``
+都可以将对象输出位字符换类型，其中str()的可读性好，repr()函数得到的做富川通常可以用来重新获得该对象
+a=1
+a == eval(repr(a))
+True
+eval()函数的作用是将字符串转化为列表、字典和元组
+`` == repr()
+repr()对python友好但是对用户不友好
+str()对用户友好对python不友好
+5、type()和isinstance()
+type()返回任意python对象的类型，而不局限于标准类型
+请看例子：displayNumType.py
