@@ -1,0 +1,13 @@
+序列类型是一种它的元素被顺序放置的数据结构
+访问某一个数据元素
+sequence[index]
+index：
+正直 1-N-1
+length = len(sequence)
+负值 -N--1
+
+访问一片元素
+sequence[starting_index:ending_index]
+整个序列：[:]
+前三个：[0:3] [:3]
+第二个到最后一个：[2:N-1] [2:]
