@@ -1,0 +1,8 @@
+enumerate(iter)
+len(seq)
+max(iter, key=None)
+min(iter, key=None)
+reversed(seq)
+sorted(iter, func=None, key=None, reverse=False)
+sum(seq, init=0)
+zip([it0,it1,...itN])
