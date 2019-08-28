@@ -1,0 +1,16 @@
+len():获取字符串长度（有多少个单位为一的字符串）
+max() and min():返回最大或最小的ASCII码值的字符
+enumerate():
+s = "foobar"
+for m, n in enumerate(s):
+    print(m, n)
+0 f
+1 o
+2 o
+3 b
+4 a
+5 r
+zip():
+s, t = "foa", "obr"
+zip(s, t)
+[("f", "o"), ("o", "b"), ("a", "r")]
