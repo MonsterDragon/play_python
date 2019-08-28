@@ -1,0 +1,6 @@
+python2:raw_input()
+python3:input()
+str() and unicode()
+chr():用一个范围在range(256)内的整数作为参数，返回一个对应的字符。
+unchr():返回的是unicode字符
+ord():是chr()函数或unchr()函数的配对函数，它以一个字符作为参数，返回对应的ASCII数值，或者Unicode数值
