@@ -1,0 +1,13 @@
+三引号的语法是一对连续的单引号和双引号
+三印好的典型用例是是HTML或SQL，这是用字符串组合，特殊字符串转义会非常繁琐
+errHTML = '''
+<HTML><HEAD><HTML>
+Friends CGI Demo</TITLe>
+'''
+
+Python 3.6.1 (default, Jul  6 2019, 19:36:20) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-23)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+<HTML><HEAD><HTML>
+Friends CGI Demo</TITLe>
+
