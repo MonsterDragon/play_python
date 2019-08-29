@@ -1,0 +1,2 @@
+codec是COder/DECoder的首字母组合
+它定义了文本跟二进制值的转换方式
