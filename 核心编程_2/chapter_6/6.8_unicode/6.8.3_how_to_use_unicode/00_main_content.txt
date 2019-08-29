@@ -1,0 +1,1 @@
+Unicode()函数可以把任何Python的数据类型转换为Unicode字符串
