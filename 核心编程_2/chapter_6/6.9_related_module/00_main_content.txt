@@ -1,0 +1,32 @@
+相关模块：
+string：字符串相关函数和工具
+>>> from string import Template
+>>> s = Template('$who likes $what')
+>>> s.substitute(who='tim', what='kung pao')
+'tim likes kung pao'
+>>> d = dict(who='tim')
+>>> Template('Give $who $100').substitute(d)
+Traceback (most recent call last):
+...
+ValueError: Invalid placeholder in string: line 1, col 11
+>>> Template('$who likes $what').substitute(d)
+Traceback (most recent call last):
+...
+KeyError: 'what'
+>>> Template('$who likes $what').safe_substitute(d)
+'tim likes $what'
+re：正则表达式
+struct：字符串和二进制之间的转换
+c/StringIO：字符串缓冲对象，操作方法类似于file对象
+base64：base16/32/64数据编解码
+codecs：解码器注册和基类
+crypt：进行单方面加密
+difflib：找出序列间的不同
+hashlib：多种不同安全哈希算法和信息摘要算法的API
+hma：HMAC信息鉴权算法的Python实现
+md5：RSA的MD5信息摘要鉴权
+rotor：提供多平台的加解密服务
+sha：NIAT的安全哈希算法
+stringprep：提供用于IP协议的Unicode字符串
+textwrap：文本包装和填充
+unicodedata：Unicode数据库
