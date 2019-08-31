@@ -1,0 +1,2 @@
+1、del alist[1]
+2、alist.remove("niha")

@@ -1,0 +1,3 @@
+在等号的左边制定一个索引或者索引范围的方式来更新一个或几个元素，也可以用append的方法追加新的元素进去
+alist[2] = "float replacer"
+alist.append("nihao")
