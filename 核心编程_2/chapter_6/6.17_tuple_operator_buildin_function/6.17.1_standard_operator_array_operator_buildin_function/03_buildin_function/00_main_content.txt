@@ -1,0 +1,6 @@
+str()
+len()
+max()
+min()
+cmp()
+list()
