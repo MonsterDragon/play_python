@@ -1,0 +1,13 @@
+dict.clear()：删除dict中的全部键值对
+dict.fromkeys(seq, val=None)：以seq中的元素为key，val为value创建dict
+dict.get(key, default=None)：获取key对应的value，若key不存在返回default
+dict.has_key(key)：判断是否存在key
+dict.items()：返回键值对元组作为元素的列表
+dict.keys()：返回key的列表
+dict.iter()：返回迭代对象
+dict.pop(key, default)：删除key的键值对，并返回value，若key不存在，返回default
+dict.setdefault(key, default=None)：如果key存在，则value仍为原值。若key不存在则将key和value=default的键值对添加到dict中
+dict.update(dict2)：将dict2中的键值对添加到dict中
+dict.values()：返回值的列表
+sorted(dict)：返回有序的可迭代对象
+目前keys()/items()/values()都返回的是列表，若列表太大会很占内存，因此iteritems()/iterkeys()/itervalues这些迭代器被添加进来
