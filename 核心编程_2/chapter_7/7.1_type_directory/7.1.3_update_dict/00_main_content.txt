@@ -1,0 +1,3 @@
+dict1['name'] = "shuz"
+dict1['port'] = 22
+print("host %(name)s is running on port %(port)d" % dict1)
