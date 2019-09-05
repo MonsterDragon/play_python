@@ -1,0 +1,4 @@
+del dict1["name"] 删除键为name的键值对
+del dict1 删除整个字典
+dict1.clear() 删除字典中所有的键值对
+dict1.pop("name") 删除key为name的键值对并返回value
