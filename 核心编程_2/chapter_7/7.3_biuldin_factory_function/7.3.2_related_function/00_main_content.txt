@@ -1,0 +1,43 @@
+>>> dict(zip(['x', 'y'], (1, 2)))
+{'x': 1, 'y': 2}
+>>> dict1 = (["x", 'y'], (1, 2))
+>>> dict1
+(['x', 'y'], (1, 2))
+>>> dict(dict1)
+{'x': 'y', 1: 2}
+>>> dict([(('xy')[i], i) for i in range (2)])
+{'x': 0, 'y': 1}
+>>> dict(x=1, y=2)
+{'x': 1, 'y': 2}
+>>> dict8 = dict(x=1, y=2)
+>>> dict8
+{'x': 1, 'y': 2}
+>>> dict3 = dict(**dict8)
+>>> dict3
+{'x': 1, 'y': 2}
+如果参数是另一个映射对象，比如一个字典对象，对其调用dict()会从存在的字典里复制内容来生成新的字典。新生成的字典是浅拷贝过来的。同copy()
+>>> dict1 = dict(x=1, y=2)
+>>> dict2 = dict1.copy()
+>>> dict1
+{'x': 1, 'y': 2}
+>>> dict2
+{'x': 1, 'y': 2}
+>>> id(dict1)
+140240976930280
+>>> id(dict2)
+140240978199752
+>>> dict1['x'] = 10
+>>> dict1
+{'x': 10, 'y': 2}
+>>> dict2
+{'x': 1, 'y': 2}
+len()：返回键值对数目
+hash()：此函数并不是给地点设计的方法，但它可以判断某个对象是否可以用作字典的key，是否是哈希的
+>>> hash("shuz")
+1456374375628436641
+>>> hash(())
+3527539
+>>> hash({})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unhashable type: 'dict'
