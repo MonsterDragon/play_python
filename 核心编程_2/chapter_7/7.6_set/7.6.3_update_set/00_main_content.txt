@@ -1,0 +1,5 @@
+s.add('z')
+s.update('pypi')
+s.remove('z')
+s -= set('pypi')
+因为集合元素相当于dict的键，必须是可hash的，因此相同的值只会有一个存储位置。因此，集合有去重的作用
