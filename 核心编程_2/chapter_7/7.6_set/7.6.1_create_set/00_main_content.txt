@@ -1,0 +1,10 @@
+set()
+s = set("shop")
+s
+set(["s", "h", "o", "p"])
+frozenset()
+t = frozenset("book")
+t
+frozenset(["b", "o", "o", "k"])
+集合可以去重
+集合相当于没有值的字典，只有
