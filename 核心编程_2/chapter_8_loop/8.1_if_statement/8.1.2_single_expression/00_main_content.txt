@@ -1,0 +1,2 @@
+如果一个符合语句的代码块仅仅包含一行代码，那么它可以和前面的语句写在同一行上
+if make_hard_copy: send_data_to_printer()
