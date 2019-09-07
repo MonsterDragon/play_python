@@ -1,0 +1,22 @@
+1、联合| 函数union()
+两个集合去合集
+>>> set("abc")|set("bcd")
+{'b', 'a', 'c', 'd'}
+>>> set.union(set("abc"), set("bcd"))
+{'c', 'd', 'b', 'a'}
+2、交集& 函数intersection()
+set("abc")&set("bcd")
+{'b', 'c'}
+>>> set.intersection(set("abc"), set("bcd"))
+{'c', 'b'}
+3、差补- 函数difference()
+>>> set("abc")-set("bcd")
+{'a'}
+>>> set.difference(set("abc"), set("bcd"))
+{'a'}
+4、对称差分^ 函数symmetric_difference()
+>>> set("abc")^set("bcd")
+{'a', 'd'}
+>>> set.symmetric_difference(set("abc"), set("bcd"))
+{'a', 'd'}
+如果左右两个操作数的类型不同，则以左边操作数的类型作为结果的集合类型
