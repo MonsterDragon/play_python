@@ -1,0 +1,5 @@
+>>>x, y = 4, 3
+>>> smaller = x if x < y else y
+>>> smaller
+3
+
