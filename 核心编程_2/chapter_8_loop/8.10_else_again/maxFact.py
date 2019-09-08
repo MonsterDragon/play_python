@@ -1,0 +1,16 @@
+#! /usr/bin/env python3
+# -*- encode=utf-8 -*-
+
+def showMaxFactor(num):
+    count = num // 2
+    while count > 1:
+        if num % count == 0:
+            print("largest factor of {} is {}".format(num, count))
+            break
+        else:
+            count -= 1
+    else:
+        print(num, "is prime")
+
+for eachNum in range(10, 21):
+    showMaxFactor(eachNum)

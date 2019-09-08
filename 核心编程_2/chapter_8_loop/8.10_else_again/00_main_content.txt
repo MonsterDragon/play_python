@@ -1,0 +1,1 @@
+在while循环和for循环之后使用else语句，else语句只在循环正常结束后才能执行，也就是break跳出循环也会跳过else语句
