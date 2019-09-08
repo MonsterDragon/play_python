@@ -1,0 +1,12 @@
+1、通过序列项迭代
+namelist = ['Harden', 'Tmac']
+for i in namelist:
+    print(i)
+2、通过序列索引迭代
+namelist = ['Harden', 'Tmac']
+for i in range(len(namelist)):
+    print(namelist[i])
+3、使用项和索引迭代
+namelist = ['Harden', 'Tmac']
+for m, n in enumerate(namelist):
+    print(m+1, n)
