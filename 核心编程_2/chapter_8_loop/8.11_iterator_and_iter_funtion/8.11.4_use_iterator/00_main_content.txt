@@ -1,0 +1,98 @@
+python2:
+>>> myTuple = (123, 'asd', 21.1)
+>>> i = iter(myTuple)
+>>> i.next()
+123
+>>> i.next()
+'asd'
+>>> i.next()
+21.100000000000001
+>>> i.next()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+python3:
+>>> myTuple = (123, 'asd', 21.1)
+>>> i = iter(myTuple)
+>>> i.next()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'tuple_iterator' object has no attribute 'next'
+>>> dir(i)
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__length_hint__', '__lt__', '__ne__', '__new__', '__next__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__']
+>>> i.__next__
+<method-wrapper '__next__' of tuple_iterator object at 0x7f9fc2aea9e8>
+>>> print(i.__next__)
+<method-wrapper '__next__' of tuple_iterator object at 0x7f9fc2aea9e8>
+>>> print(i.__next__())
+123
+>>> print(i.__next__())
+asd
+>>> print(i.__next__())
+21.1
+>>> print(i.__next__())
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>> mylist = [123, '122', 'asas']
+>>> i = iter(mylist)
+>>> dir(i)
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__length_hint__', '__lt__', '__ne__', '__new__', '__next__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__']
+>>> i.next()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'list_iterator' object has no attribute 'next'
+>>> i.__next__()
+123
+>>> i.__next__()
+'122'
+>>> i.__next__()
+'asas'
+>>> 
+>>> i.__next__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>> mylist = [123, '122', 'asas']
+>>> i = iter(mylist)
+>>> next(i)
+123
+>>> next(i)
+'122'
+>>> next(i)
+'asas'
+>>> next(i)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+字典：
+for eachKey in myDict.keys():
+for eachKey in myDict:
+三个其他的内建方法
+myDict.itervalues()
+myDict.iterkeys()
+myDict.iteritems()
+这三个方法会返回一个迭代器，若果字典的元素很大，可以使用这三个内建方法来减少内存的开销
+>>> mydict = {1:'as', 'asa':212, 'as':'322'}
+>>> for eachKey in mydict
+  File "<stdin>", line 1
+    for eachKey in mydict
+                        ^
+SyntaxError: invalid syntax
+>>> 
+>>> for eachKey in mydict:
+...     print(eachKey)
+... 
+1
+asa
+as
+文件：
+文件对象生成的迭代器会自动调用readline()方法
+myFile = open('config-win.txt')
+for eachLine in myFile:
+    print(eachLine)
+>>> myFile = open('00_main_content.txt')
+>>> for eachLine in myFile:
+...     print(eachLine)
+>>> myFile.close()
+
