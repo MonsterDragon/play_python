@@ -1,0 +1,2 @@
+while expression:
+    suite_to_repeat
