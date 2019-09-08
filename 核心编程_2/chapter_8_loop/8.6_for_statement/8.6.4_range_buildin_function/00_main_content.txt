@@ -1,0 +1,6 @@
+1、range()的完整语法
+range(start, end, step=1)
+2、range()简略语法
+range(end)
+range(start, end)
+python3的range方法返回一个可迭代对象，Python2则返回整个序列
