@@ -1,0 +1,2 @@
+write()写入字符串
+writelines()逐行写入列表元素
