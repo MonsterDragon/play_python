@@ -1,0 +1,6 @@
+file.closed：表示文件是否已经被关闭
+file.encoding：文件所使用的编码
+file.node：access文件打开时用的访问模式
+file.name：文件名
+file.newlines：未读取到行分隔符时为None，只用一种行分隔符时为一个字符串，当文件有多种类型的行结束符时，则返回包含所有当前所遇到的行结束符的列列表
+file.softspace：为0时表示输出一组数据后，要加上一个空格符，1表示不加
