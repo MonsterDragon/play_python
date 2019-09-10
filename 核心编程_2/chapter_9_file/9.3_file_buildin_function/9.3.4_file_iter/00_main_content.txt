@@ -1,0 +1,2 @@
+for eachline in f:
+在python中获得的open对象实际上就是自己的迭代器，因此可以使用next()方法来获得文本文件的行
