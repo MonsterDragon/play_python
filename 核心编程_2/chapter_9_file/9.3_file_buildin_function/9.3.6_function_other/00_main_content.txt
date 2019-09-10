@@ -1,0 +1,16 @@
+f = open(filename, "r")
+for eachline in f:
+    print(eachline)
+f.close()
+通过迭代的方式返回每一行，而不是将文件全部督导缓存，适用于大文件
+import os
+f = open(filename, "w")
+while True:
+    aLine = input("Please enter the line: ")
+    if aLine != ".":
+        f.write("%s%s" % (aLine, os.lineseq))
+    else:
+        break
+f.close()
+f.tell()显示当前指针所在的字符序号
+f.seek(-12, 1)向当前指针所在的位置向前移动12个字符
