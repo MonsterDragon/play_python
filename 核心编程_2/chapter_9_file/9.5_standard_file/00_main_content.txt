@@ -1,0 +1,6 @@
+一般说来只要你的程序一执行，你就可以访问3个标准文件。它们分别为标准输入、标准输出、标准错误
+stdin stdout stderr
+import sys
+sys.stdin
+sys.stdout
+sys.stderr
