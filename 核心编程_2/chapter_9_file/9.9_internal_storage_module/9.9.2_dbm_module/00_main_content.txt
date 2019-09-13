@@ -1,0 +1,1 @@
+*db*系列模块使用传统的DBM格式写入数据，Python提供了DBM的多种实现：dbhash/bsddb dbm gdbm dumbdbm
