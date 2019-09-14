@@ -1,0 +1,18 @@
+def safe_float(args)
+    try:
+        retval = float(args)
+    except ValueError:
+        retval = "could not convert non-number to float"
+    return retval
+
+
+>>> def safe_float(args):
+...     try:
+...         retval = float(args)
+...     except ValueError:
+...         retval = "could not convert non-number to float"
+...     return retval
+... 
+>>> safe_float("ab")
+'could not convert non-number to float'
+
