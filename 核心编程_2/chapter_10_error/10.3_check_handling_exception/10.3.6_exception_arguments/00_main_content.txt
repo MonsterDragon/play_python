@@ -1,0 +1,23 @@
+except Exception as e:
+    suite_for_Exception_with_Argument
+e将会是一个包含来自导致异常的代码的诊断信息的类实例。异常参数自身会组成一个元组，并存储为类实例的属性。
+对于大多内建异常，也就是从StandardError派生的异常中，这个元组值包含一个指示错误原因的字符串
+e是一个类的实例，这样做你其实是调用类的魔法方法__str__()
+def safe_float(args):
+    try:
+        retval = float(args)
+    except (ValueError, TypeError) as e:
+        retval = str(e)
+    return retval
+
+>>> def safe_float(args):
+...     try:
+...         retval = float(args)
+...     except (ValueError, TypeError) as e:
+...         retval = str(e)
+...     return retval
+... 
+>>> safe_float("aa")
+"could not convert string to float: 'aa'"
+>>> safe_float({})
+"float() argument must be a string or a number, not 'dict'"
