@@ -1,0 +1,14 @@
+try-except语句定义了进行异常监控的一段代码，并且提供了处理异常的机制。
+try:
+    try-suite # 监控这里的异常
+except Exception[, reason]:
+    except_suite # 异常处理代码
+
+>>> try:
+...     f = open('blad', 'r')
+... except IOError as e:
+...     print("Could not open file: %s" % e)
+... 
+Could not open file: [Errno 2] No such file or directory: 'blad'
+
+忽略代码 继续执行 和向上移交
