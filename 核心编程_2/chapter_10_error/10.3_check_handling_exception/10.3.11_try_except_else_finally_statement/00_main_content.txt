@@ -1,0 +1,16 @@
+try:
+    try_suite
+except Exception1:
+    suite_foe_Exception1
+except (Exception2, Exception3):
+    suite_for_Exception2_3
+except Exception4 as e:
+    suite_for_Exception4_plus_argument
+except (Exception5, Exception6) as m, n:
+    suite_for_Exception6_andException5_plus_argument
+except:
+    suite_for_all_other_exceptions
+else:
+    no_exception_detected_suite
+finally:
+    always_execute_suite
