@@ -1,0 +1,2 @@
+try语句有两种主要形式：try-except和try-finally。这两个语句是互斥的，也就是说你只能使用其中的一种。一个try语句可以对应一个或多个except子句，但只能对应一个finally子句，或是一个try-except-finally复合语句。
+你可以使用try-except的语句检测和处理异常。你也可以添加一个可选的else子句处理没有探测到异常的执行代码。而try-finally只允许检测异常并作一别必要的清除工作
