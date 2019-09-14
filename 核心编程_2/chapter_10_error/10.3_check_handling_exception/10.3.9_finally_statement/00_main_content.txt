@@ -1,0 +1,11 @@
+finally子句是无论异常是否发生，是否捕捉都会执行的一段代码
+try:
+    A
+except:
+    B
+else:
+    C
+finally:
+    D
+ABD
+ACD
