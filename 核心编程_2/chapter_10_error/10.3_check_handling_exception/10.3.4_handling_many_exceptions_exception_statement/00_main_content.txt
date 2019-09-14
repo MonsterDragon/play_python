@@ -1,0 +1,16 @@
+def safe_float(args):
+    try:
+        retval = float(args)
+    except (ValueError, TypeError):
+        retval = "argument must be a number or numeric string"
+    return retval
+
+>>> def safe_float(args):
+...     try:
+...         retval = float(args)
+...     except (ValueError, TypeError):
+...         retval = "argument must be a number or numeric string"
+...     return retval
+... 
+>>> safe_float("aaa")
+'argument must be a number or numeric string'
