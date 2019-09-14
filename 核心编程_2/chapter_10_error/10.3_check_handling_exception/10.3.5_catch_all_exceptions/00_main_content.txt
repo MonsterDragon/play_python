@@ -1,0 +1,16 @@
+try:
+    try_suite
+except Exception:
+    except_suite
+异常前移到了新式类。启用了一个新的“所有异常之母”，这个类叫做BaseException。
+其中
+KeyboardInterrupt
+SystemExit
+Exception
+是平级的。
+
+>>> Exception
+<class 'Exception'>
+>>> BaseException
+<class 'BaseException'>
+
