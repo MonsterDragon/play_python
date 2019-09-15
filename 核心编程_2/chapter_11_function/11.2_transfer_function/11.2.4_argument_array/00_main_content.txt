@@ -1,0 +1,2 @@
+python同样允许程序员执行一个没有显示定义参数的函数，相应的方法使用过一个把元组或字典作为参数传递给函数
+func(position_args, keyword_args, *tuple_grp_nonkw_args, **dict_grp_kw_args)
