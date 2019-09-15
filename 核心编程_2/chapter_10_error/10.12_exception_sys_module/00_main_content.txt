@@ -1,0 +1,13 @@
+>>> try:
+...     float("aa")
+... except:
+...     import sys
+...     exc_tuple = sys.exc_info()
+... 
+>>> print(exc_tuple)
+(<class 'ValueError'>, ValueError("could not convert string to float: 'aa'",), <traceback object at 0x7f47dede2888>)
+
+sys.exc_info()返回的元组：
+exc_type异常类
+exc_value异常类的实例
+exc_traceback跟踪记录对象
