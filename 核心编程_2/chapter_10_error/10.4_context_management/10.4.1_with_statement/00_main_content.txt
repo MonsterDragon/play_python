@@ -1,0 +1,5 @@
+try-except和try-finally的一种特定的配合用法是保证共享的资源的为一分配，并在任务结束的时候释放他
+然而，with语句的目的在于从流程图中把try、except和finally关键字和资源分配释放相关代码统统去掉
+with context_expr [as var]:
+    with_suite
+它仅能工作于支持上下文管理协议的对象
