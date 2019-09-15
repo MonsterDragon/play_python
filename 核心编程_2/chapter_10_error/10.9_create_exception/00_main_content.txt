@@ -1,0 +1,1 @@
+自定义两个新的异常FileError和NetworkError
