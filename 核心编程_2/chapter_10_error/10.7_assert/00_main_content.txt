@@ -1,0 +1,22 @@
+断言是一句必须等价于布尔真的判定；此外，发生异常叶意味着表达式为假
+assert statement
+如果断言成功不采取措施（类似语句），否则触发AssertionError（断言错误）的异常
+assert expression[, arguments]
+AssertionError异常和其他异常一样可以用try-except语句块捕捉，但是如果没有捕捉，它将终止程序运行而提供一个跟踪记录
+>>> assert 1==0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AssertionError
+
+>>> assert 1==0, "one does not equal zero silly!"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AssertionError: one does not equal zero silly!
+
+>>> try:
+...     assert 1==0, "one does not equal zero silly!"
+... except AssertionError as args:
+...     print("%s:%s" % (args.__class__.__name__, args))
+... 
+AssertionError:one does not equal zero silly!
+
