@@ -1,0 +1,6 @@
+def foo():
+    pass
+    bar()
+def bar():
+    pass
+代码没有错误。python从上至下声明函数再从上至下执行函数。先声明再执行
