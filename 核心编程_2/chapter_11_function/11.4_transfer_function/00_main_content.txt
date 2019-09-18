@@ -1,0 +1,10 @@
+>>> def foo():
+...     print("hello")
+... 
+>>> bar = foo
+>>> bar()
+hello
+>>> foo()
+hello
+>>> 
+函数的对象可以通过引用来进行传递
