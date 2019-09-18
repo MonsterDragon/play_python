@@ -1,0 +1,3 @@
+装饰器以@开头，接着是装饰器函数的名字和可选参数。紧跟着装饰器声明的是被修饰的函数和装饰函数的可选参数。
+@decorator(dec_opt_args)
+def func2Bdecorated(func_opt_args)
