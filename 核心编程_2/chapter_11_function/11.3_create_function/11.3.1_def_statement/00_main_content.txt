@@ -1,0 +1,4 @@
+def function_name(arguments):
+    "function_documentation_string"
+    function_body_suite
+
