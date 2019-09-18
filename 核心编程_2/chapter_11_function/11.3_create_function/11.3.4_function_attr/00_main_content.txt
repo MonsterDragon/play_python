@@ -1,0 +1,17 @@
+不同的函数模块声明了不同的命名空间，在不同的命名空间下入股有相同的形参，是相互不影响的。
+函数可以通过"."的方式来获得它的属
+>>> def foo():
+...     pass
+... 
+>>> foo.__doc__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'NoneType' object is not callable
+>>> print(foo.__doc__)
+None
+>>> foo.__doc__
+>>> foo.__doc__ = "mine function"
+>>> print(foo.__doc__)
+mine function
+>>> foo.__doc__
+'mine function'
