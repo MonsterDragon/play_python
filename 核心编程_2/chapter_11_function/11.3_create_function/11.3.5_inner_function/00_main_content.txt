@@ -1,0 +1,15 @@
+>>> def foo():
+...     def bar():
+...         print("bar() called")
+...     print("foo() called")
+...     bar()
+... 
+>>> foo()
+foo() called
+bar() called
+>>> bar()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'bar' is not defined
+>>> 
+整个函数体都在外部函数的作用域之内。如果没有任何对bar()的外部引用，name除了在函数体内，任何地方都不能对其进行调用
