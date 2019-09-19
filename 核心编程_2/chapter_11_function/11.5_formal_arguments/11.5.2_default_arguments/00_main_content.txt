@@ -1,0 +1,6 @@
+python中默认值声明变量的语法是所有位置参数必须出现在任何一个默认参数之前
+def function(posargs, defarg1=dval1, defarg2=dval2):
+    function_body_suite
+
+1、为什么用默认参数
+默认参数让程序的健壮性上升到极高的级别，因为它们补充了标准位置参数没有提供的灵活性
