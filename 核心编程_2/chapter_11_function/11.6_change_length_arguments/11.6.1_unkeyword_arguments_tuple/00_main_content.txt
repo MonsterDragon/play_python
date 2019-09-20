@@ -1,0 +1,5 @@
+可变长度参数的语法：
+def function([formal_args], *vargs_tuple):
+    "function_documentation_string"
+    function_body_suite
+星号参数符之后的形参将作为元组传递给函数，元组保存了所有传递函数的“额外”的参数。如果没有额外的参数元组为空
