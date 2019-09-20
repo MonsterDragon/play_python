@@ -1,0 +1,4 @@
+变量参数字典来应对额外关键字参数的函数定义语法
+def function_name([formal_args], [*vargst], **vargsd):
+    function_documentation_string
+    function_body_suite
