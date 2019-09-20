@@ -12,8 +12,9 @@ def catch(url="http://www.baidu.com"):
         print("Error:{}".format(e))
     html = response.read()
     html_str = bytes.decode(html, 'utf-8')
-    lines = html_str.readlines()
-    return lines
+    html_list = html_str.split("\n")
+    print("html_list:{}".format(html_list))
+    return html_list
 
 def firstNotBlank(lines):
     """返回首个不为空的字符串"""
@@ -21,7 +22,7 @@ def firstNotBlank(lines):
         if not startLine.strip():
             continue # 终止当前循环，并忽略剩余的语句
     else:
-        return sartLineLine
+        return startLine
 
 def endNotBlank(lines):
     """返回首个末尾不为空的字符串"""
