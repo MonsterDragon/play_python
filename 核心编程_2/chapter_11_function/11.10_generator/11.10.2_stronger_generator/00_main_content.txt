@@ -1,0 +1,29 @@
+>>> def counter(start_at=0):
+...     count = start_at
+...     while True:
+...         val = yield count
+...         if val is not None:
+...             count = val
+...         else:
+...             count += 1
+... 
+>>> count = counter(5)
+>>> next(count)
+5
+>>> next(count)
+6
+>>> next(count)
+7
+>>> next(count)
+8
+>>> count.send(1)
+1
+>>> next(count)
+2
+>>> count.close()
+>>> next(count)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+
+除了next()来获得下个生成的值，用户可以将值回送给生成器，在生成器中抛出异常，以及要求生成器退出
