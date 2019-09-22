@@ -1,0 +1,22 @@
+与迭代器相似，生成器以另外额方式运作：当到达一个真正的返回或者函数结束没有更多的值返回，一个StopIteration一场会被抛出
+>>> def simgen():
+...     yield 1
+...     yield 2
+... 
+>>> simgen.next()
+>>> next(myG)
+1
+>>> next(myG)
+2
+>>> next(myG)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+
+from random import randint
+
+def randGen(aList):
+    while len(aList) > 0:
+        yield aList.pop(randint(0, len(aList)))
+
+使用生成器最好的地方就是当你正迭代穿越一个巨大的数据集合
