@@ -1,0 +1,5 @@
+1、简单的函数式例子
+from operator import add, mul
+from functools import partial
+add1 = partial(add, 1) # add1(x) == add(x, 1)
+mul100 = partial(mul, 100) # mul100(x) == mul(x ,100)
