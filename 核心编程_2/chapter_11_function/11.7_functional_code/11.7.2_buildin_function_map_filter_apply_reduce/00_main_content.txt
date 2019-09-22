@@ -1,0 +1,34 @@
+apply(): 函数调用语法,python2有，python3取消
+filter：过滤函数，给定一个对象的序列和一个“过滤”函数，每个序列元素都通过这个过滤器进行筛选，保留函数返回为真的对象。filter函数为已知的序列的每个元素调用给定布尔函数。每个filter返回的非零值元素添加到一个列表中
+def filter(bool_func, seq):
+    filtered_seq = []
+    for eachItem in seq:
+        if bool_func(eachItem):
+	    filtered_seq.append(eachItem)
+    return filtered_seq
+map(): map()将函数调用“映射”到每个序列的元素上，并返回一个含有所有返回值的列表
+def map(func, seq):
+    mapped_seq = []
+    for eachItem in seq:
+        mapped.append(func(eachItem))
+    return mapped_seq
+map能以多个序列作为其输入。如果是这种情况，那么map()会并行地迭代每个序列。在第一次调用时，map()会将每个序列的第一个元素捆绑到一个元组中，将func函数作用到map()上，当map()已经完成执行的时候，并将元组的结果返回到mapped_seq映射的，最终以整体返回的序列上
+>>> map(lambda x, y: (x+y, x-y), (1, 3, 5), (2, 4, 6))
+<map object at 0x7fe9d12ae080>
+>>> zip((1, 3, 5), (2, 4, 6))
+<zip object at 0x7fe9d1299788>
+>>> [i for i in map(lambda x, y: (x+y, x-y), (1, 3, 5), (2, 4, 6))]
+[(3, -1), (7, -1), (11, -1)]
+>>> [i for i in zip((1, 3, 5), (2, 4, 6))]
+[(1, 2), (3, 4), (5, 6)]
+reduce()：Python2中还在，Python3中已取消
+def reduce(bin_func, seq, init=None):
+    Iseq = list(seq)
+    if init is None:
+        res = Iseq.pop[0]
+    else:
+        res = init
+    for eachItem in Iseq:
+        res = bin_func(res, eachItem)
+    return res
+可以用来计算累和
