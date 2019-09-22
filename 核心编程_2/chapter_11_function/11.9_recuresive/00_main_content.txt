@@ -1,0 +1,6 @@
+如果一个新的调用能早相同过程中焦躁的调用结束之前开始，那么该过程就是递归
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
