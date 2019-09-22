@@ -1,0 +1,23 @@
+lambda [arg1[, arg2, ... argN]]: expression
+lambda表达式返回可调用的函数对象
+当被调用的时候，如果给定相同的参数的话，这些对象生成一个和相同表达式等价的结果。它们和哪些返回等价表达式计算值相同的函数是不能区分的
+def true():
+    return True
+
+true = lambda : True
+
+def add(x, y):
+    return x + y
+
+add = lambda x, y: x + y
+
+def usuallyAdd2(x, y=2):
+    return x + y
+
+usuallyAdd2  = lambda x, y=2: x + y
+
+def showAllAsTuple(*z):
+    return z
+
+showAllAsTuple = lambda *z: z
+lambda表达式运作起来就像一个函数，当被调用是，创建一个框架对象
