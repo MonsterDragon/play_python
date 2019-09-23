@@ -1,0 +1,10 @@
+>>> import sys
+>>> sys.path
+['', '/usr/local/python3/lib/python36.zip', '/usr/local/python3/lib/python3.6', '/usr/local/python3/lib/python3.6/lib-dynload', '/usr/local/python3/lib/python3.6/site-packages']
+模块的导入需要一个叫做路径搜索的过程。即在文件系统“预定区域”中查找mymodule.py文件。这些预定区域只不过是你的Python搜索路径的集合。
+路径搜索和搜索路径是两个不同的概念。前者是指查找某个文件的操作，后者是去查找一组目录
+默认搜索路径是编译器或是安装时指定的。他可以在一个或两个地方进行更改
+一个是启动Python的shell或命令行的PYTHONPATH环境变量。该变量的内容是一组冒号分隔的目录路径
+解释器启动后，也可以访问这个搜索路径，他会被保存在sys模块的sys.path变量里
+sys.path.append('/home/wesc/py/lib')
+使用sys.modules可以找到当前导入了哪些模块和它们来自什么地方
