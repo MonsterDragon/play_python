@@ -1,0 +1,5 @@
+python的一个有用的特性在于你可以在任何旭耀纺织数据的地方获得一个名称空间
+def foo():
+    pass
+foo.version = 2
+f.__doc__ = "add a string to describe"
