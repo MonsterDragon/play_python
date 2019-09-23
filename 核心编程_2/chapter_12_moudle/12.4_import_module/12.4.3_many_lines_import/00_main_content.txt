@@ -1,0 +1,4 @@
+不提倡使用
+from module import *
+应该使用
+from module import Tk, Frame, Button
