@@ -1,0 +1,15 @@
+>>> import builtins
+>>> doc(builtins)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'doc' is not defined
+>>> builtins.__doc__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object is not callable
+>>> builtins.__doc__
+"Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil' object; Ellipsis represents `...' in slices."
+>>> type(builtins)
+<class 'module'>
+名称空间是名称（标识符）到对象的映射。向名称空间添加名称的操作过程涉及绑定标识符到指定的操作
+改变一个名字的绑定到重新绑定，删除一个名字叫做解除绑定
