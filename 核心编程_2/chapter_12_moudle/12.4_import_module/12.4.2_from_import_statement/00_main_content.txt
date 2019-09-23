@@ -1,0 +1,2 @@
+把指定名称导入到当前作用域
+from module import name1[, name2[,...nameN]]
