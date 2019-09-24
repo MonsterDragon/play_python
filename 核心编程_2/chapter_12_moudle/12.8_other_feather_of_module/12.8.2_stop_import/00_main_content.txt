@@ -1,0 +1,2 @@
+from module import foo._bar
+组织导入foo模块的bar属性
