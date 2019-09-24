@@ -1,0 +1,3 @@
+因为import语句总是绝对导入的，所以相对导入只应用于from-import语句
+from Phone.Mobile.Analog import dial
+from .Analog import dial
