@@ -1,0 +1,3 @@
+sys.modules变量包含一个由当前载入到解释器的模块组成的字典，模块名为键
+import sys
+sys.modules.keys()
