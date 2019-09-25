@@ -1,0 +1,20 @@
+类与实例相互关联着：类是对象的定义，实例是“真实的实物”，它存放了类中所定义的对象的具体信息
+class MyNewObjectType(bases):
+    'define MyNewObjectType'
+    class_suite
+新式类和经典类最大的不同在于，所有新式类必须继承至少一个父类，参数bases可以是一个或多个用于继承的父类
+oject是“所有类之母”。如果你的累没有继承任何其它父类，object将作为默认的父类。它位于所有类继承的最上层。如果你没有直接或间接的子类化一个对象，那么你定义的是一个经典类
+class MyObjectType:
+    'define MyNewObjectType'
+    class suite
+创建一个实例的过程称为实例化
+myfirstObject = MyNewObjectType()
+类只作为名称空间
+class MyData(object):
+    pass
+
+mathObj = MyData()
+mathObj.x = 4
+mathObj.y = 5
+mathObj.x + mathObj.y
+动态地添加实例属性
