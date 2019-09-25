@@ -1,0 +1,8 @@
+类的功能有一个更通俗的名字叫方法。在Python中，方法定义在类定义中，但是只能被实例所调用。
+1、定义类 2、定义方法 3、创建实例调用方法
+class MydataWiyhMethod(object):
+    def printFoo(self):
+        print("You invoked printfoo()")
+self代表实例对象本身
+一般方法会需要这个self，而静态方法或类方法不会，其中类方法需要类而不是实例
+__init__()方法是在类被实例化的时候调用的，并不是构造器。真正的构造器是__new__()方法
