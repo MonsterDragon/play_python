@@ -6,3 +6,27 @@ class AddrBookEntry(object):
     def updatePhone(self, newph):
         self.phone = newph
         print("Updated phone for %s" % self.name)
+
+创建实例：
+john = AddrBookEntry('John Doe', '408-555-1212')
+jane = AddrBookEntry('Jane Doe', '650-221-9887')
+
+访问实例属性：
+john.name
+jane.name
+
+方法的调用：
+john.updatePhone('121-317-298')
+john.phone
+
+创建子类：
+新的类将保持已有的类所有的类型，而不会改变原来类的定义。对于新类类型而言，这个新的子类可以定制只属于它的特定功能。除了与父类或基类的关系之外，子类与通常的类没有什么区别
+class EmpleAddrBookEntry(AddrBookEntry):
+    def __init__(self, nm, ph, id, em):
+        AddrBookEntry.__init__(self, nm, ph)
+        self.empid = id
+        self.email = em
+    def updateEmail(self, newem):
+        self.email = newem
+        print("Update e-mail address for {}\n".format(self.name))
+如果需要，每个子类最好定义他自己的构造器，不然，积累的构造器就会被调用。然而，如果子类重写积累的构造器，基类的构造器就不会自动调用。这样，基类的构造器就必须显示写出才会被调用
