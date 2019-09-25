@@ -1,0 +1,8 @@
+class AddrBookEntry(object):
+    def __init__(self, nm, ph):
+        self.name = nm
+        self.phone = ph
+        print("Created instance for %s\n" % self.name)
+    def updatePhone(self, newph):
+        self.phone = newph
+        print("Updated phone for %s" % self.name)
