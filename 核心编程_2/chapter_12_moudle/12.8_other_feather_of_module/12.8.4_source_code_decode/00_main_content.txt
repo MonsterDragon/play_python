@@ -1,0 +1,3 @@
+一个UTF-8编码的文件
+# /usr/bin/env python
+# -*- coding:UTF-8 -*-
