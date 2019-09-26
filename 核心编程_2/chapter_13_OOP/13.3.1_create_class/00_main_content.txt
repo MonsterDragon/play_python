@@ -1,0 +1,4 @@
+class ClassName(bases):
+    "class Documentation string"
+    class_suite
+基类是一个或多个用于继承的父类的集合
