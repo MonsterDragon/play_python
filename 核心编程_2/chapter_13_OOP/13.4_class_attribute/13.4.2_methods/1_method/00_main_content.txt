@@ -1,0 +1,19 @@
+>>> class MyClass(object):
+...     def MyNoActionMethod(self):
+...         pass
+... 
+>>> mc = MyClass()
+>>> mc.MyNoActionMethod()
+>>> MyNoActionMethod()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'MyNoActionMethod' is not defined
+>>> MyClass.MyNoActionMethod()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: MyNoActionMethod() missing 1 required positional argument: 'self'
+>>> MyClass.MyNoActionMethod(self)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'self' is not defined
+
