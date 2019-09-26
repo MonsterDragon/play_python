@@ -1,0 +1,24 @@
+>>> class MyClass(object):
+...     "My class"
+...     myVersion = "1.1"
+...     def show(self):
+...         print(MyClass.myVersion)
+... 
+>>> MyClass.__name__
+'MyClass'
+>>> MyClass.__doc__
+'My class'
+>>> MyClass.__bases__
+(<class 'object'>,)
+>>> MyClass.__dict__
+mappingproxy({'__module__': '__main__', '__doc__': 'My class', 'myVersion': '1.1', 'show': <function MyClass.show at 0x7f31f2173f28>, '__dict__': <attribute '__dict__' of 'MyClass' objects>, '__weakref__': <attribute '__weakref__' of 'MyClass' objects>})
+>>> MyClass.__module__
+'__main__'
+>>> MyClass.__class__
+<class 'type'>
+__name__：类名
+__doc__：类文档字符串
+__bases__：类的父类
+__dict__：类的字典属性
+__module__：类所在的模块
+__class__：类对应的类
