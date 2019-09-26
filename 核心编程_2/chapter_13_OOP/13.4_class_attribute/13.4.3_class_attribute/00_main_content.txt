@@ -1,0 +1,16 @@
+要知道一个类有哪些属性，有两种办法。最简单的是使用dir()内建函数。另外是通过访问类的字典属性__dict__
+>>> class MyClass(object):
+...     "My class"
+...     myVersion = "1.1"
+...     def show(self):
+...         print(MyClass.myVersion)
+... 
+>>> dir(MyClass)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'myVersion', 'show']
+>>> MyClass.__dict__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'mappingproxy' object is not callable
+>>> MyClass.__dict__
+mappingproxy({'__module__': '__main__', '__doc__': 'My class', 'myVersion': '1.1', 'show': <function MyClass.show at 0x7f42c0eecf28>, '__dict__': <attribute '__dict__' of 'MyClass' objects>, '__weakref__': <attribute '__weakref__' of 'MyClass' objects>})
+
