@@ -1,0 +1,2 @@
+MRO:Method Resolution Order方法解释顺序
+采用广度优先算法
