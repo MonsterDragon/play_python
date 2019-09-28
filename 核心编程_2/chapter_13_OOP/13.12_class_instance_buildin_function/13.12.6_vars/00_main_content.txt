@@ -1,0 +1,14 @@
+>>> class C(object):  
+...     pass
+... 
+>>> c = C()
+>>> c.foo = 100
+>>> c.bar = "python"
+>>> c.__dict__
+{'foo': 100, 'bar': 'python'}
+>>> vars(c)
+{'foo': 100, 'bar': 'python'}
+>>> vars()
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'C': <class '__main__.C'>, 'c': <__main__.C object at 0x7f6e1eb729e8>}
+
+若vars()未提供参数则会返回当前global()中的所有属性
