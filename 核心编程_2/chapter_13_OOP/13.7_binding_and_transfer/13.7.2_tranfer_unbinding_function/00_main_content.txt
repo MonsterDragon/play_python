@@ -1,0 +1,6 @@
+>>> class Empl(Addr):
+...     def __init__(self, num, ph, em):
+...         Addr.__init__(self, nm, ph)
+...         self.email = em
+Addr.__init__(self, nm, ph)
+通过类的方式用非绑定的调用__init__方法，需要传入self来代表真实创建的实例
