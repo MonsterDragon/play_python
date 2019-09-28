@@ -1,0 +1,18 @@
+当你在实例调用一个绑定的方法是，self不需要明确地传入。
+但是当你还没有一个实例并且需要调用一个非绑定的方法的时候你必须传递self参数
+>>> class C(object):
+...     def foo(self):
+...         print("helllo")
+... 
+>>> C.foo()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: foo() missing 1 required positional argument: 'self'
+>>> C.foo(com)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'com' is not defined
+>>> c = C()
+>>> C.foo(c)
+helllo
+
