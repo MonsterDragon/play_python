@@ -1,0 +1,13 @@
+dir()显示实例的所有属性
+__dict__()显示当前当前用有的属性
+>>> class C(object):
+...     pass
+... 
+>>> c = C()
+>>> c.foo = 'roger'
+>>> c.bar = 'aa'
+>>> dir(c)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'bar', 'foo']
+>>> c.__dict__
+{'foo': 'roger', 'bar': 'aa'}
+
