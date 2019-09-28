@@ -1,0 +1,77 @@
+1、不可变类型的例子
+>>> class RoundFloat(float):
+...     def __new__(cls, val):
+...         return super(RoundFloat, cls).__new__(cls, round(val, 2))
+... 
+>>> RoundFloat(1.67576)
+1.68
+>>> class RoundFloat(float):
+...     def __new__(cls, val):
+...         return super(RoundFloat, cls).__new__(round(val, 2))
+... 
+>>> RoundFloat(1.67576)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in __new__
+TypeError: float.__new__(X): X is not a type object (float)
+>>> class C(object):
+...     @classmethod
+...     def show(cls):
+...         print("hello")
+... 
+>>> C.show()
+hello
+>>> C.__new__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: object.__new__(): not enough arguments
+>>> C.__new__(c)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'c' is not defined
+>>> C.__new__("c")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: object.__new__(X): X is not a type object (str)
+>>> C.__new__(C)
+<__main__.C object at 0x7fe01fbe8160>
+>>> C.__new__(C).__class__
+<class '__main__.C'>
+>>> class RoundFloat(float):
+...     def __new__(cls, val):
+...         float.__new__(cls, round(val, 2))
+... 
+>>> RoundFloat(1.22323)
+>>> class RoundFloat(float):
+...         float.__new__(cls, round(val, 2))
+... 
+KeyboardInterrupt
+>>> class RoundFloat(float):
+...     def __new__(cls, val):
+...         return float.__new__(cls, round(val, 2))
+... 
+>>> RoundFloat(1.22323)
+1.22
+ass C(object):
+...     pass
+... 
+>>> C.__new__(C)
+<__main__.C object at 0x7fb9e4a719e8>
+>>> c = C.__new__(C)
+>>> c.__class__
+<class '__main__.C'>
+>>> type(c)
+<class '__main__.C'>
+>>> dir(c)
+2、可变类型的例子
+>>> class SortedKeyDict(dict):
+...     def keys(self):
+...         return sorted(super(SortedKeyDict, self).keys())
+... 
+>>> d = SortedKeyDict((("zhang-cai", 67), ("hui-jun", 68), ("xin-yi", 2)))
+>>> d
+{'zhang-cai': 67, 'hui-jun': 68, 'xin-yi': 2}
+>>> d.keys()
+['hui-jun', 'xin-yi', 'zhang-cai']
+>>> [key for key in d]
+['zhang-cai', 'hui-jun', 'xin-yi']
