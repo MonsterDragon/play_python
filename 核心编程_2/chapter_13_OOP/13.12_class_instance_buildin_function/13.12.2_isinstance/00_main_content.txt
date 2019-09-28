@@ -1,0 +1,6 @@
+isinstance()布尔函数
+判定obj1是obj2的实例
+obj2为类或类型
+>>> isinstance(2, int)
+True
+obj2可以是一个元组，如果obj1是obj2中给定元组的任何一个候选类型或类的实例时，就会返回True
