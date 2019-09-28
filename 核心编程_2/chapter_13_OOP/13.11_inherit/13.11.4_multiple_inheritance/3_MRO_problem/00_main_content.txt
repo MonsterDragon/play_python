@@ -1,0 +1,24 @@
+在设计类的继承关系时，通常，主线都是单一继承下来的，例如，Ostrich继承自Bird。但是，如果需要“混入”额外的功能，通过多重继承就可以实现，比如，让Ostrich除了继承自Bird外，再同时继承Runnable。这种设计通常称之为Mixin。
+
+为了更好地看出继承关系，我们把Runnable和Flyable改为RunnableMixin和FlyableMixin。类似的，你还可以定义出肉食动物CarnivorousMixin和植食动物HerbivoresMixin，让某个动物同时拥有好几个Mixin
+
+经典类大部分类都是单继承的，多继承仅限于在对两个完全不相关的类进行联合。这就是mixin类的由来
+
+class A(object):
+    pass
+
+class B(object):
+    def __init__(self):
+        pass
+
+class C(A, B):
+    pass
+若仍沿用旧式类的MRO方式去查询则会出现不会调用B的init方法的问题出现，因为object类的原因，A和B的类都继承自object。这就出现了一个菱形的继承关系
+          object
+            /\
+           /  \
+          A    B
+           \  /
+            \/
+             C
+为解决init方法未被调用的原因，出现了广度优先的继承查询方法
