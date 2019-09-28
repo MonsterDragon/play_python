@@ -1,0 +1,8 @@
+issubclass()布尔函数判断一个类是另一个类的子类或子孙类(是子类)
+issubclass(sub,sup)
+给出的子类sub确实是父类sup的一个子类返回True
+>>> class A(object):
+...     pass
+... 
+>>> issubclass(A, object)
+True
