@@ -1,0 +1,19 @@
+>>> class P(object):
+...     def foo(self):
+...         print("Hi, I am P-foo()")
+... 
+>>> class C(P):
+...     def foo(self):
+...         P.foo(self)
+...         print("Hi, I am C-foo()")
+... 
+>>> c= C()
+>>> c.foo()
+Hi, I am P-foo()
+Hi, I am C-foo()
+
+class C(P):
+    def foo(self):
+        super(C, self).foo()
+        print("Hi, I am C-foo()")
+使用super()的漂亮之处在于你不需要明确给出任何基类的名字，你不需要提供父类
