@@ -1,0 +1,22 @@
+OOD允许类特征在子孙类或子类中进行继承
+>>> class Parent(object):
+...     def parentfunc(self):
+...         print("calling parent func")
+... 
+>>> class Child(Parent):
+...     def childfunc(self):
+...         print("calling child func")
+... 
+>>> p = Parent()
+>>> p.parentfunc()
+calling parent func
+>>> c = Child()
+>>> c.childfunc()
+calling child func
+>>> c.parnetfunc()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Child' object has no attribute 'parnetfunc'
+>>> c.parentfunc()
+calling parent func
+
