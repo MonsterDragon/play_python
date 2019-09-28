@@ -1,0 +1,18 @@
+dir()
+1、dir()作用在实例上时，显示实例变量，还有在实例所在的类及所有它的基类中定义的方法和类属性
+2、dir()作用在类上时，则显示类以及它的所有基类的__dict__()中的内容
+3、作用在模块上时，则显示模块的__dict__的内容
+>>> class C(object):
+...     def __init__(self):
+...         self.foo = 100
+... 
+>>> dir(C)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> c = C()
+>>> dir(c)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'foo']
+>>> C.__dict__
+mappingproxy({'__module__': '__main__', '__init__': <function C.__init__ at 0x7f005e236048>, '__dict__': <attribute '__dict__' of 'C' objects>, '__weakref__': <attribute '__weakref__' of 'C' objects>, '__doc__': None})
+>>> c.__dict__
+{'foo': 100}
+
