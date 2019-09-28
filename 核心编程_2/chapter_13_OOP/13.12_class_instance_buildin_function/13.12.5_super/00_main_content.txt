@@ -1,0 +1,22 @@
+super(obj1, obj2)：obj1表示当前类的名字，obj2为
+>>> class C(object):
+...     def __init__(self):
+...         self.foo = 100
+... 
+>>> dir(C)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> C.__mro__
+(<class '__main__.C'>, <class 'object'>)
+>>> class C(object):
+...     def __init__(self):
+...         print(type(self))
+...         self.foo = 100
+... 
+>>> c = C()
+<class '__main__.C'>
+>>> b = C.__new__(C)
+>>> b
+<__main__.C object at 0x7f89af4d09e8>
+>>> type(b)
+<class '__main__.C'>
+事实上，super()是一个工厂函数，它创造了一个super object，为一个给定的类使用__mro__去吃查找相应的父类。很显然，它从当前所找到的类开始搜索MRO
