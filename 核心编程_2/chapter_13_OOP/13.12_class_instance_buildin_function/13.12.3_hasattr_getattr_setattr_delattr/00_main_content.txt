@@ -1,0 +1,33 @@
+hasattr(obj1, obj2)：判断时候有属性返回布尔值
+getattr(obj1, obj2, obj3)：查询属性的值，如果没有该属性则会返回默认值obj3
+setattr(obj1, obj2, obj3)：设置新的属性obj2值obj3
+delattr(obj1, obj2)：删除属性obj2
+>>> class myClass(object):
+...     def __init__(self):
+...         self.foo = 100
+... 
+>>> myInit = myClass()
+>>> hasattr(myInit, foo)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'foo' is not defined
+>>> hasattr(myInit, "foo")
+True
+>>> getattr(myInit, "foo")
+100
+>>> getattr(myInit, "bar", "aa")
+'aa'
+>>> getattr(myInit, "bar")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'myClass' object has no attribute 'bar'
+>>> setattr(myInit, "bar", "aa")
+>>> getattr(myInit, "bar")
+'aa'
+>>> dir(myInit)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'bar', 'foo']
+>>> myInit.__dict__
+{'foo': 100, 'bar': 'aa'}
+>>> myClass.__dict__
+mappingproxy({'__module__': '__main__', '__init__': <function myClass.__init__ at 0x7f8de5e35f28>, '__dict__': <attribute '__dict__' of 'myClass' objects>, '__weakref__': <attribute '__weakref__' of 'myClass' objects>, '__doc__': None})
+注意obj2必须是字符串，因为属性是字典的数据结构
