@@ -1,0 +1,46 @@
+def print(self, *args, sep=' ', end='\n', file=None): # known special case of print
+    """
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+    """
+    pass
+这是print函数的源码，也就是print函数是类的函数，若我们通过print输出类实例它会调用object元类的__str__()内建函数，而__str__()内建函数实际上会执行str()函数，本例的目的就是要重写__str__()函数并对其进行覆盖
+
+1、显示
+class Time60(object):
+    def __init__(self, hr, mi):
+        self.hr = hr
+        self.mi = mi
+    def __str__(self):
+        return "%d:%d" % (hr, mi)
+2、加法
+class Time60(object):
+    def __init__(self, hr, mi):
+        self.hr = hr
+        self.mi = mi
+    def __str__(self):
+        return "%d:%d" % (hr, mi)
+    def __add__(self, other):
+        return self.__class__(self.hr + other.hr, self.mi + other.mi)
+    __repr__ = __str__
+其中self.__class__()同Time60()相同
+3、原位加法
+class Time60(object):
+    def __init__(self, hr, mi):
+        self.hr = hr
+        self.mi = mi
+    def __str__(self):
+        return "%d:%d" % (hr, mi)
+    def __add__(self, other):
+        return self.__class__(self.hr + other.hr, self.mi + other.mi)
+    __repr__ = __str__
+    def __iadd__(self, other):
+        self.hr += other.hr
+        self.mi += other.mi
+        return self
