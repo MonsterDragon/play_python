@@ -1,0 +1,43 @@
+>>> class RoundFloatManual(object):
+...     def __init__(self, val):
+...         assert isinstance(val, float), "Value must be a float"
+...         self.value = round(val, 2)
+... 
+>>> rfm = RoundFloatMaual(1.2316)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'RoundFloatMaual' is not defined
+>>> rfm = RoundFloatManual(1.2316)
+>>> rfm.value
+1.23
+>>> rfm = RoundFloatManual(3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in __init__
+AssertionError: Value must be a float
+>>> class RoundFloatManual(object):
+...     def __init__(self, val):
+...         assert isinstance(val, float), "Value must be a float"
+...         self.value = round(val, 2)
+...     def __str__(self):
+...         return str(self.val)
+... 
+>>> rfm = RoundFloatManual(3.12)
+>>> rfm
+<__main__.RoundFloatManual object at 0x7fdd16176fd0>
+>>> print(rfm)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in __str__
+AttributeError: 'RoundFloatManual' object has no attribute 'val'
+>>> class RoundFloatManual(object):
+...     def __init__(self, val):
+...         assert isinstance(val, float), "Value must be a float"
+...         self.value = round(val, 2)
+...     def __str__(self):
+...         return str(self.value)
+... 
+>>> rfm = RoundFloatManual(3.12)
+>>> print(rfm)
+3.12
+
