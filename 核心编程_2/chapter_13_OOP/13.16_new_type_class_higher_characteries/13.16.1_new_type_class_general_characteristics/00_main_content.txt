@@ -1,0 +1,16 @@
+下面的内建函数实际上都是工厂函数也就是类
+int(), long(), float(), complex()
+str(), unicode()
+list(), tuple()
+type()
+basestring()
+dict()
+bool()
+set()
+object()
+classmethod()
+staticmethod()
+super()
+property()
+file()
+这些类名及工厂函数使用起来，很灵活。不仅能够创建这些类型的新对象，它们还可以用来作为基类，去子类化类型，现在还可以使用isinstance()内建函数
