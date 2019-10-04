@@ -1,0 +1,25 @@
+字典位于实例的心脏。__dict__属性跟踪所有的实例属性。
+若你有实例inst和foo属性，那么inst.foo与inst.__dict__['foo']相同
+字典会占据大量的内存，如果你有一个属性数量很少的类，但是有很多实力，那么正好是这种情况，为内存考虑用户可以用__slots__来代替__dict__
+>>> class Test(object):
+...     __slots__ = ('foo', 'bar')
+...     def __init__(self, foo):
+...         self.foo = foo
+... 
+>>> t = Test(3)
+>>> t.foo
+3
+>>> t.__dict__
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+AttributeError: 'Test' object has no attribute '__dict__'
+>>> t.__slots__
+('foo', 'bar')
+>>> t.bar = "aa"
+>>> t.bar
+'aa'
+>>> t.cbn = 12
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+AttributeError: 'Test' object has no attribute 'cbn'
+
