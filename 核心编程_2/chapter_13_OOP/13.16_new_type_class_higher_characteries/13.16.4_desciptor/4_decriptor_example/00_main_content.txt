@@ -1,0 +1,108 @@
+>>> class DevNull1(object):
+...     def __get__(self, obj, typ=None):
+...         pass
+... 
+>>> class DevNull1(object):
+...     def __get__(self, obj, typ=None):
+...         pass
+...     def __set__(self, obj, val):
+...         pass
+... 
+>>> class C1(object):
+...     foo = DevNull1()
+... 
+>>> c1 = C1()
+>>> c1.__dict__
+{}
+>>> c1.foo = 'bar'
+>>> c1.foo
+>>> class DevNull2(object):
+...     def __get__(self, obj, typ=None):
+...         print("Accessing attribute... ignoring")
+...     def __set__(self, obj, val):
+...         print("Attempt to assign %r... ignoring" % val)
+... 
+>>> class C2(object):
+...     foo = DevNull2()
+... 
+>>> c2 = C2()
+>>> c2.foo = 'bar'
+Attempt to assign 'bar'... ignoring
+>>> c2.foo
+Accessing attribute... ignoring
+>>> x = c2.foo
+Accessing attribute... ignoring
+>>> x
+>>> print(x)
+None
+>>> class DevNull3(object):
+...     def __init__(self, name=None):
+...         self.name = name
+...     def __get__(self, obj, typ=None):
+...         print("Accessiong [%s]...ignoring" % self.name)
+...     def __set__(self, obj, val):
+...         print("Assigning %r to [%s]..ignoring" % (val, self.name))
+... 
+>>> class C3(object):
+...     foo = DevNull3('foo')
+... 
+>>> c3 = C3()
+>>> c3.foo
+Accessiong [foo]...ignoring
+>>> c3.foo = 'bar'
+Assigning 'bar' to [foo]..ignoring
+>>> c3.foo
+Accessiong [foo]...ignoring
+>>> print(c3.foo)
+Accessiong [foo]...ignoring
+None
+>>> c3.__dict__['foo'] = 'bar'
+>>> print(c3.foo)
+Accessiong [foo]...ignoring
+None
+>>> c3.__dict__
+{'foo': 'bar'}
+>>> c3.foo
+Accessiong [foo]...ignoring
+>>> c4 = C3()
+>>> c4.foo = 'bar'
+Assigning 'bar' to [foo]..ignoring
+>>> c4.__dict__
+{}
+>>> class FooFoo(object):
+...     def foo(self):
+...         print("Very important foo() method")
+... 
+>>> bar = FooFoo()
+>>> bar.foo()
+Very important foo() method
+>>> bar.foo = "It is no longer here"
+>>> bar.foo()
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+TypeError: 'str' object is not callable
+>>> bar.foo
+'It is no longer here'
+>>> def bar.foo
+File "<stdin>", line 1
+def bar.foo
+^
+SyntaxError: invalid syntax
+>>> del bar.foo
+>>> bar.foo()
+Very important foo() method
+>>> def barBar()
+File "<stdin>", line 1
+def barBar()
+^
+SyntaxError: invalid syntax
+>>> def barBar():
+...     print("foo() hidden bt barBar()")
+... 
+>>> bar.foo = barBar
+>>> bar.foo()
+foo() hidden bt barBar()
+>>> del bar.foo
+>>> bar.foo()
+Very important foo() method
+
