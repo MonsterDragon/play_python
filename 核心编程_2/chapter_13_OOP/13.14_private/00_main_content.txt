@@ -1,0 +1,25 @@
+1、双下划线(__)
+Python为类元素（属性和方法）的私有性提供初步的形式。由双下划线开始的属性在运行时被“混淆”，所以直接访问是不允许的。用于访问这个数据值得标识就变成了self.__NumStr__num
+>>> class Test(object):
+...     def __init__(self):
+...         pass
+...     def __well(self):
+...         print("hello")
+... 
+>>> t = Test()
+>>> t.__well
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+AttributeError: 'Test' object has no attribute '__well'
+>>> t.__well()
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+AttributeError: 'Test' object has no attribute '__well'
+>>> t._Test.__well()
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+AttributeError: 'Test' object has no attribute '_Test'
+>>> t._Test__well()
+hello
+2、单下划线（_）
+简单的模块级私有化只需要在属性名前使用一个单下划线字符。这就防止模块的属性用"from mymodule import *"来加载
