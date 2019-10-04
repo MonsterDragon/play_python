@@ -1,0 +1,2 @@
+Python类有一个名为__getattr__()的特殊方法，它仅当属性不能在实例的__dict__或它的类，或者祖先类中找到时，才被调用
+如果类同时定义了__getattribute__()及__getattr__()方法，除非明确从__getattr__()调用，或getattribute引发AttributeError异常，否则后者不会被调用
