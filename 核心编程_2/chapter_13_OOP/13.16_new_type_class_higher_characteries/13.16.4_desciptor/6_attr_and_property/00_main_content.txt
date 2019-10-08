@@ -1,0 +1,36 @@
+一般情况下，当你使用点属性符号来处理一个实例属性时，其实你是在修改这个实例的__dict__属性
+property()内建函数有四个参数
+property(fget=None, fset=None, fdel=None, doc=None)
+>>> class Project(object):
+...     def __init__(self, x):
+...         assert isinstance(x, int), "x must be integer"
+...         self._x = ~x
+...     def get_x(self):
+...         return ~self._x
+...     x = property(get_x)
+... 
+>>> ins = Project(10)
+>>> ins.__dict__
+{'_x': -11}
+>>> ins.x
+10
+>>> class Hidex(object):
+...     def __init__(self, x):
+...         self.x = x
+...     def get_x(self):
+...         return ~self._x
+...     def set_x(self, x):
+...         self._x = ~x
+...     x = property(get_x, set_x)
+... 
+>>> inst = Hidex(10)
+>>> inst.x
+10
+>>> inst.__dict__
+{'_x': -11}
+>>> inst.x = 20
+>>> inst.__dict__
+{'_x': -21}
+>>> inst.x
+20
+
