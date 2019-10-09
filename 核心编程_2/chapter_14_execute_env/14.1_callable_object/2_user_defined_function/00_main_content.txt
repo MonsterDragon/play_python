@@ -1,0 +1,17 @@
+用户定义函数通常是用Python写的。定义在模块的最高级，因此会作为全局名称空间的一部分装载到系统中
+
+	用户自定义函数属性
+  属性			描述
+udf.__doc__	     文档字符串
+udf.__name__	 字符串类型的函数名字
+udf.func_code      字节编译的代码对象
+udf.func_defaults    默认的参数元组
+udf.func_globals   全局名称空间字典
+udf.func_dict      函数属性的名称空间
+udf.func_doc       同udf.__doc__
+udf.func_name      同udf.__name__
+udf.func_closure   包含了自由变量的引用的单元对象元组
+>>> def foo(): pass
+... 
+>>> type(foo)
+<class 'function'>
