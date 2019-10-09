@@ -1,0 +1,12 @@
+元类让你来定义某些类是如何被创建的，从根本上说，赋予你如何创建类的控制权
+你可以把元类想成一个类种类，它的实例时其他的类
+>>> class C(object):
+...     pass
+... 
+>>> class CC:
+...     pass
+... 
+>>> type(C)
+<class 'type'>
+>>> type(CC)
+<class 'type'>
