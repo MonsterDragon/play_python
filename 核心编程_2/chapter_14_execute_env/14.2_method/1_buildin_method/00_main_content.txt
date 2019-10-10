@@ -1,0 +1,7 @@
+从内部机制来看，因为BIF和内建方法BIM属于相同的类型，所以对BIF或者BIM调用type()的结果是相同的
+只有内建类型有内建方法
+>>> type([].append)
+<class 'builtin_function_or_method'>
+此外，BIM和BIF两者都想有相同的属性。不同之处在于BIM的__self__属性指向一个Python对象，而BIF指向None
+>>> dir([].append)
+['__call__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__self__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__text_signature__']
