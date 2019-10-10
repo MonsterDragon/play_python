@@ -1,0 +1,10 @@
+lambda表达式不是用def语句创建的，而是用lambda关键字
+因为lambda表达式没有给命名绑定的代码提供基础结构，所以要通过函数式编程接口来调用，或把它们的引用赋值给一个变量，然后就可以直接调用或者再通过函数来调用。变量仅是个别名，并不是函数对象的名字
+通过lambda来创建函数的对象除了没有命名之外，向右和用户自定义函数相同的属性：__name__或者func_name属性给定义为字符串"<lambda>"
+>>> lambdafunc = lambda x: x * 2
+>>> lambdafunc(10)
+20
+>>> type(lambdafunc)
+<class 'function'>
+>>> lambdafunc.__name__
+'<lambda>'
