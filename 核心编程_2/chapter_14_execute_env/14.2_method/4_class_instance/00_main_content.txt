@@ -1,0 +1,17 @@
+python给类提供了__call__的特别方法，该方法允许程序员创建可调用对象（实例）。默认情况下，__call__()方法是没有实现的，这意味着大多数实例都是不可调用的。然而，如果类定义中覆盖了这个方法，那么这个类的实例就成为可调用的了。调用这样的实力对象等同于调用__call__()方法。自然地，任何在实例调用中给出的参数会被传入到__call__()方法中。那么foo()就和foo.__call__(foo)的效果相同，这里foo也作为参数出现，因为是对自己的引用，实例将自动成为每次方法调用的第一个参数。如果__call__()有参数，比如(self, arg)，那么foo(arg)等同于foo.__call__(foo, arg)
+>>> class C(object):
+...     def __call__(self, *args):
+...         print("I'm callable! Called with args:\n", args)
+... 
+>>> c = C()
+>>> c
+<__main__.C object at 0x7fca2f4709e8>
+>>> callable(c)
+True
+>>> c()
+I'm callable! Called with args:
+ ()
+ >>> c(2, "aa", 1.1)
+ I'm callable! Called with args:
+  (2, 'aa', 1.1)
+
