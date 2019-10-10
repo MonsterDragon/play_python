@@ -1,0 +1,44 @@
+UDM包含在类定义中，只有拥有标准函数的包装，仅有定义它们的类可以使用。UDM与类对象是关联的（非绑定），但是只能通过类的实例调用绑定方法，无论UDM是否绑定，所有的UMD都是相同的类型——“实例方法”
+>>> class C(object):
+...     def foo(self): pass
+... 
+>>> c= C()
+>>> type(C)
+<class 'type'>
+>>> type(c)
+<class '__main__.C'>
+>>> C.__new__(C)
+<__main__.C object at 0x7f37a555e9e8>
+>>> b = C.__new__(C)
+>>> type(b)
+<class '__main__.C'>
+>>> type(b.foo)
+<class 'method'>
+>>> type(c.foo)
+<class 'method'>
+>>> type(C.foo)
+<class 'function'>
+>>> C.foo
+<function C.foo at 0x7f37a553ef28>
+>>> b = C.__new__(C)
+>>> type(b)
+<class '__main__.C'>
+>>> type(b.foo)
+<class 'method'>
+>>> type(c.foo)
+<class 'method'>
+>>> type(C.foo)
+<class 'function'>
+>>> C.foo
+<function C.foo at 0x7f37a553ef28>
+>>> c.foo
+<bound method C.foo of <__main__.C object at 0x7f37a552ffd0>>
+>>> b.foo
+<bound method C.foo of <__main__.C object at 0x7f37a552ff28>>
+	属性		描述
+  udm.__doc__	     文档字符串
+  udm.__name__    字符串类型的方法名字
+  udm.__module__  定义udm的模块的名字
+  udm.im_class       方法相关联的类
+  udm.im_func       方法的函数对象
+  udm.im_self     如果绑定的话为相关联的实例，如果非绑定为None
