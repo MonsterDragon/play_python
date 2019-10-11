@@ -1,0 +1,9 @@
+		可执行的对象声明和内建函数
+	内建函数和语句								描述
+  callable(obj)							如果obj可调用，返回True，否则返回Flase
+  complie(string, file, type)				从Type类型中创建代码对象；file是代码存放的地方（通常设为""）	
+  eval(obj, globals=global(), locals=local())         对obj进行求值，obj是已编译为代码对象的表达式，或是一个字符串表达式；
+   								     可以给出全局或者和局部名称空间
+  exec obj					      执行obj，单一的Python语句或者语句集合，也就是说个税是代码对象或者字
+  							   符串；obj也可以是一个文件对象（已经打开的有效Python脚本中）
+  input(prompt="")							等同于eval(input(prompt=""))
