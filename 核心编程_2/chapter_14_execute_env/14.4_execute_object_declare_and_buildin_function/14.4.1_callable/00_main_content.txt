@@ -1,0 +1,13 @@
+callable()是一个布尔函数，确定一个对象是否可以通过函数操作符（()）来调用。如果函数可调用返回True, 否则便是False
+>>> callable(dir)
+True
+>>> class C(object): pass
+... 
+>>> callable(C)
+True
+>>> callable(a)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  NameError: name 'a' is not defined
+  >>> callable(1)
+  False
