@@ -1,0 +1,26 @@
+compile()函数允许程序员在运行时刻迅速生成代码对象，然后就可以用exec语句或者内建函数eval()来执行这些对象或者对它们进行求值。一个很重要的观点是：exec和eval()都可以执行字符串格式的Python代码。当执行字符串形式的代码时，每次都必须对这些代码进行字节编译处理。compile()函数提供了一次性字节代码预编译，以后每次调用的时候，都不用编译了
+compile的三个参数都是必须的，第一个参数代表了编译的Python代码。第二个字符串，虽然是必须的，但是通常被设置为空串。该参数代表了存放代码对象的文件的名字。compile的通常用法是动态生成字符串形式的Python代码，然后生成一个代码对象
+最后的参数是个字符串，它用来表明代码对象的类型
+"eval"		可求值的表达式【和eval()一起使用】
+"single"	单一执行语句【和exec一起使用】
+"exec"		可执行与剧组【和exec一起使用】
+1、可求值表达式
+>>> eval_code = compile('100+200', '', 'eval')
+>>> eval(eval_code)
+300
+2、单一可执行语句
+>>> single_code = compile('print("hello world")', '', 'single')
+>>> exec(single_code)
+hello world
+3、可执行语句组
+>>> exec_code = compile("""
+... req = input('Count how many numbers?')
+... for i in range(req):
+...     print(i)
+... """, '', 'exec')
+>>> exec(exec_code)
+Count how many numbers?4
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+File "", line 3, in <module>
+TypeError: 'str' object cannot be interpreted as an integer
