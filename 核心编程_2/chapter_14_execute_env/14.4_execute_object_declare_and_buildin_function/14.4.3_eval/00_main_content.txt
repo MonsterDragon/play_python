@@ -1,0 +1,13 @@
+eval()对表达式求值，后者可以为字符串或内建函数compile()创建预编译代码对象。这是eval()第一个也是最重要的参数这边是你想要执行的对象。第二个和第三个参数都是可选的，分别代表了全局和局部名称空间中的对象。globals必须是个字典，locals可以是任意的映射对象
+>>> eval('100+1')
+101
+>>> aa = eval('1+1')
+>>> aa
+2
+>>> eval_code = compile('1+2', '', 'eval')
+>>> eval_code
+<code object <module> at 0x7fb231e7a8a0, file "", line 1>
+>>> print(eval_code)
+<code object <module> at 0x7fb231e7a8a0, file "", line 1>
+>>> eval(eval_code)
+3
