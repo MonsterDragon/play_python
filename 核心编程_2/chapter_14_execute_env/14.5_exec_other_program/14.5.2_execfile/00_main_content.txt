@@ -1,0 +1,2 @@
+python2中的execfile()
+execfile(filename, globals=globals(), locals=locals())
