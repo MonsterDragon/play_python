@@ -1,0 +1,16 @@
+os.system(cmd)		执行程序cmd（字符串），等待程序结束，返回退出代码（windows下始终为0）
+当执行命令的时候，Python的运行是挂起的。当我们的执行完成之后，将会以system()的返回值形式给出退出状态，Python的执行也会继续
+system()保留了现有的标准输出，包括标准输出，一位这执行命令和程序显示输出都会传到标准输出上。
+特定程序比如公共网关接口，如果将除了有效的超文本标记语言字符串之外的输出，经过标准输出发送给客户端，会引起Web浏览器的异常。
+system()通常和不会产生输出的命令一起使用
+0表示成功，非0表示其他类型的错误
+>>> import os
+>>> result = os.system("cat /etc/mod")
+cat: /etc/mod: No such file or directory
+>>> result = os.system("cat /etc/motd")
+>>> print(result)
+0
+>>> result = os.system("uname -a")
+Linux instance-np8pryk9 2.6.32-696.16.1.el6.x86_64 #1 SMP Wed Nov 15 16:51:15 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+>>> result
+0
