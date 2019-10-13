@@ -14,3 +14,10 @@ cat: /etc/mod: No such file or directory
 Linux instance-np8pryk9 2.6.32-696.16.1.el6.x86_64 #1 SMP Wed Nov 15 16:51:15 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 >>> result
 0
+
+>>> import os
+>>> result = os.system("dir")
+00_main_content.txt
+>>> result
+0
+
