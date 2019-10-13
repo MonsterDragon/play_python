@@ -1,0 +1,7 @@
+若执行python2内建包中的某个脚本
+python /usr/loca/lib/python2.7.5/CGIHTTPServer.py
+由于要想执行一个脚本就必须要找到它的绝对路径，很难找到
+python -c "import CGIHTTPServer; CGIHTTPServer.test()"
+要想执行导入模块的某个函数，就必须要再调用一下，因为导入模块，其中的函数不会自动的调用
+python -m CGIHTTPServer
+通过-m的命令行参数，会直接执行模块中if __name__ == "__main__": 下面对函数的调用
