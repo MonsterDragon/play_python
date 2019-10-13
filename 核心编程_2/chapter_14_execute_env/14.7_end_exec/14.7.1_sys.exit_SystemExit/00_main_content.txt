@@ -1,0 +1,1 @@
+立即退出程序并返回调用程序的主要方式是sys模块中的exit()函数。sys.exit()的语法为：当调用sys.exit()时，就会引发systemExit()异常
