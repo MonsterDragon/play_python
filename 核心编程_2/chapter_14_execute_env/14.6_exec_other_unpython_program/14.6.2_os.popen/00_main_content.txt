@@ -1,0 +1,17 @@
+popen()函数是文件对象和system()函数的结合。
+它可以建立一个指向那个程序的单向链接，然后像访问文件一样访问这个程序。
+如果程序要输入，那么你要用'w'模式写入那个命令来调用popen()。你发给程序的数据会通过标准输入接收到。
+同样，'r'模式允许spawn命令，那么当它写入标准输出的时候，你就可以通过类文件句柄使用熟悉的file对象的read()方法读取输入。
+>>> import os
+>>> f = os.popen('uname -a')
+>>> f.read()
+'Linux instance-np8pryk9 2.6.32-696.16.1.el6.x86_64 #1 SMP Wed Nov 15 16:51:15 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux\n'
+>>> f_list = os.popen('ll').readlines()
+/bin/sh: ll: command not found
+>>> f_list = os.popen('ls').readlines()
+>>> f_list.read()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  AttributeError: 'list' object has no attribute 'read'
+  >>> f_list
+  ['00_main_content.txt\n']
