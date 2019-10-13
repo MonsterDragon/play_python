@@ -1,0 +1,1 @@
+subprocess.call()来代替os.system()
