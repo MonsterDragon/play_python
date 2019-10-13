@@ -1,0 +1,2 @@
+os._exit(status)
+这个函数提供的功能与sys.exit()和sys.exitfunc()相反，根本不执行任何清理变立即退出python，状态参数是必须的
