@@ -1,0 +1,3 @@
+findall()总返回一个列表。如果findall()没有找到匹配的部分，会返回空列表；如果成功找到匹配部分，则返回所有匹配部分的列表
+re.findall('car', 'carry the barcard to the car')
+返回 ["car", "car", "car"]
