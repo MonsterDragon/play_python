@@ -1,0 +1,4 @@
+锚点性正则表达式操作符。这些锚点性正则表达式操作符主要被用于搜索而不是匹配，因为match()总是从字符串的开头进行匹配
+m = re.search("^The", "The end") 匹配 The
+m = re.search("\bthe", "bite the dog") 匹配 the 因为the是单词的边界，左右都没有字符
+m = re.search("\Bthe", "bitethe dog") 匹配 the 因为the不是单词的边界，是bitethe中的the
