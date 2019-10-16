@@ -1,0 +1,50 @@
+>>> import re
+>>> patt = "\w+@(\w+\.)?\w+\.com"
+>>> re.match(patt, 'nobody@xxx.com').group
+<built-in method group of _sre.SRE_Match object at 0x7f0bdd4b5f30>
+>>> re.match(patt, 'nobody@xxx.com').group()
+'nobody@xxx.com'
+>>> re.match(patt, 'nobody@aaaa.xxx.com').group()
+'nobody@aaaa.xxx.com'
+>>> re.match(patt, 'nobody@aaaa.bb.cc.xxx.com').group()
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+AttributeError: 'NoneType' object has no attribute 'group'
+>>> catt = "\w+@(\w+\.)+\w+\.com"
+>>> re.match(catt, 'nobody@aaaa.bb.cc.xxx.com').group()
+'nobody@aaaa.bb.cc.xxx.com'
+
+>>> import re
+>>> re.match("(\w\w\w)-(\d\d\d)", "asa-182").group()
+'asa-182'
+>>> re.match("(\w\w\w)-(\d\d\d)", "asa-182").group(1)
+'asa'
+>>> re.match("(\w\w\w)-(\d\d\d)", "asa-182").group(2)
+'182'
+>>> re.match("(\w\w\w)-(\d\d\d)", "asa-182").groups()
+('asa', '182')
+>>> m = re.match('ab', 'ab')
+>>> a.group()
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined
+>>> m.group()
+'ab'
+>>> m.groups()
+()
+>>> m = re.match('(ab)', 'ab')
+>>> m.group()
+'ab'
+>>> m.group(1)
+'ab'
+>>> m.groups()
+('ab',)
+>>> m = re.match('(a(b))', "ab")
+>>> m.group()
+'ab'
+>>> m.group(1)
+'ab'
+>>> m.group(2)
+'b'
+>>> m.groups()
+('ab', 'b')
