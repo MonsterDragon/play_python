@@ -1,0 +1,17 @@
+sub()和subn()都是用于完成搜索和代替的功能：sub()和subn()
+都是将某字符串所有匹配正则表达式模式的部分进行替换。用来替换的部分通常是一个字符串，但也可能是一个函数，该函数返回一个用来替换的字符串和表示替换次数的数字作为一个元组的元素返回
+>>> import re
+>>> re.sub("X", "Mr.Smith", "attn: X\n\nDear X, \n")
+'attn: Mr.Smith\n\nDear Mr.Smith, \n'
+>>> re.subn("X", "Mr.Smith", "attn: X\n\nDear X, \n")
+('attn: Mr.Smith\n\nDear Mr.Smith, \n', 2)
+>>> print re.sub("X", "Mr.Smith", "attn: X\n\nDear X, \n")
+attn: Mr.Smith
+
+Dear Mr.Smith, 
+
+>>> re.sub('[ae]', 'X', "abcdefg")
+'XbcdXfg'
+>>> re.subn('[ae]', 'X', "abcdefg")
+('XbcdXfg', 2)
+
