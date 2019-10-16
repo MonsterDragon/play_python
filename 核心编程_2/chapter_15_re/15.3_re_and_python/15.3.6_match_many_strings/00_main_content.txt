@@ -1,0 +1,3 @@
+bt = 'bat|bet|bit'
+m = re.match(bt, 'bat').group()
+m = re.match(bt, 'He bit me').group()
