@@ -1,0 +1,5 @@
+.句点匹配符是不能匹配换行符或非字符的
+anyend = '.end'
+m = re.match(anyend, 'bend')
+m = re.match(anyend, '\nbend')不匹配
+m = re.search('.end', 'The end.')匹配 " end"
