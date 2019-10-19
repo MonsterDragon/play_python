@@ -26,11 +26,13 @@ class Serv_socket(object):
             print("connected from: ", addr)
             while True:
                 data = tcpcli.recv(self.bufsize)
-                print("recieve data is %s" % data)
+                print(type(data))
+                print("recieve data is %s" % data.decode())
                 if not data:
                     break
-                tcpcli.send("[%s] %s" % (ctime, data))
-                tcpcli.close()
+                send_str = "[%s] %s" % (ctime(), data)
+                tcpcli.send(send_str.encode("utf-8"))
+            tcpcli.close()
 
     def main(self):
         create_socket = self.init_socket()
