@@ -1,0 +1,6 @@
+UDP服务器不是面向连接的。
+ss = socket()
+ss.bind()
+inf_loop:
+    cs = ss.recvfrom()/ss.sendto()
+ss.close()
