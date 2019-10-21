@@ -1,0 +1,4 @@
+cs = socket()
+comm_loop:
+    cs.sendto()/recvfrom()
+cs.close()
