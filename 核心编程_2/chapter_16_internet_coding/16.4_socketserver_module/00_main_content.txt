@@ -1,0 +1,10 @@
+socketserver模块是标准库中一个高级别的模块。用于简化实现网络客户端与服务器所需要的大量样板代码。该模块中，已经实现了一些可供使用的类
+		类									描述
+	BaseServer					包含服务器的核心功能与混合（mix-in）类挂钩；这个类只用于派生，所以不会生成							   这个类的实例；可以考虑使用TCPServer和UDPServer
+	TCPServer/UDPServer				基本网络同步TCP/UDP服务器
+	UnixStreamServer/UnixDatagramServer		基本的基于文件同步TCP/UDP服务器
+	ForkingMixin/ThreadingMixin			实现了核心的进程化或线程化的功能；作为混合类，与服务器类一并使用以提供一些							   异步特性；这个类不会直接实例化
+	ForkingTCPServer/ForkingUDPServer		ForKingMixin和TCPServer/UDPServer的组合
+	ThreadingTCPServer/ThreadingUDPServer		ThreadingMixin和TCPServer/UDPServer的组合
+	BaseRequestHandler				包含处理服务请求的核心功能。这个类只用于派生，所以不会生成这个类的实例
+	StreamRequestHandler/DatagramRequestHandler	用于TCP/UDP服务器的服务处理工具
