@@ -1,0 +1,29 @@
+				socket模块属性
+	属性名字					描述
+数据属性
+AF_UNIX, AF_INET, AF_INET6			Python支持的套接字地址家族
+SO_STREAM, SO_DGRAM				套接字类型（TCP=流，UDP=数据报）
+has_ipv6					表示是否支持IPv6的布尔型标志
+异常						
+error						套接字相关错误
+herror						主机和地址相关的错误
+gaierror					地址相关错误
+timeout						超时
+函数
+socket()					用指定地址家族、套接字类型和协议类型创建一个套接字对象（可选）
+socketpair()					用指定地址家族、套接字类型和协议类型创建一对套接字对象（可选）
+fromfb()					用一个已经打开的文件描述符创建一个套接字对象
+ssl()						在套接字上发起一个安全套接字层（SSL）。不做证书验证
+getaddrinfo()					得到地址信息
+getfqdn()					返回完整的域的名字
+gethostname()					得到当前主机名
+gethostbyname()					由主机名得到对应的IP地址
+gethostbyname_ex()				返回主机名、主机所有的别名和IP地址列表
+gethostbyaddr()					由IP地址得到DNS信息，返回一个类似gethostbyname_ex()的三元组
+getprotobyname()				由协议名（如tcp）得到对应的号码
+getservbyname()/getservbyport()			由服务名得到对应的端口号或反之；两个函数中，协议名都是可选的
+ntohl()/ntohs()					把一个整型网络字节序转换为主机字节序
+htonl()/htons()					把一个整型主机字节序转换为网络字节序
+inet_aton()/inet_ntoa()				把IP地址转为32位整型，或反之（仅对IPv4有效）
+inet_pton()/inet_ntop()				把IP地址转为二进制格式或反之（对IPv4和IPv6有效）
+getdefaulttimeout()/setdefaulttimeout()		得到/设置默认的套接字超时时间，单位秒（浮点型）
