@@ -1,0 +1,2 @@
+传输文件的协议：1、文件传输协议（File Transfer Protocol, FTP）2、Unix-to-Unix复制协议（Unix-to-Unix Copy Protocol, UUCP）和3、网页的超文本传输协议（Hypertext Transfer Protocol, HTTP）
+还有（Unix下的）远程文件复制指令rcp（以及更安全，更灵活的rsync和rcp）
