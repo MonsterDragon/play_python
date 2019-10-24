@@ -1,0 +1,8 @@
+1、连接到服务器
+2、登录
+3、发出服务请求
+4、退出
+from ftplib import FTP
+f = FTP('ftp.python.org')
+f.login('anonymous', 'guess@who.org')
+quit()
