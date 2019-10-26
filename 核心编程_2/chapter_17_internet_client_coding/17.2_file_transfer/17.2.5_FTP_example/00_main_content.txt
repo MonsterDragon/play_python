@@ -1,0 +1,7 @@
+from ftplib import FTP
+f = FTP("ftp.python.org")
+f.login('anonymous', '-help@python.org')
+f.dir()
+f.retrlines(RETR motd')
+f.quit()
+
