@@ -1,0 +1,1 @@
+当一个线程结束计算，他就退出了。线程可以调用thread.exit()之类的退出函数。也可以使用Python退出进程的标准方法，如sys.exit()或跑出一个SYstemExit异常。不过你不可以直接kill一个进程
