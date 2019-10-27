@@ -1,0 +1,1 @@
+使用urllib模块来解析FTP的URL，并进行FTP传输
