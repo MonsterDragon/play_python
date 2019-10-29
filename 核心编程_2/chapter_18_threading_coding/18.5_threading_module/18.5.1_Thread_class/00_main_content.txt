@@ -1,0 +1,13 @@
+1、创建一个Thread的实例，传给它一个函数
+2、创建一个Thread的实例，传给它一个可调用的类对象
+3、从Thread派生一个子类，创建这个子类的实例
+
+	函数						描述
+       start()					   开始线程的执行
+        run()				定义线程的功能的函数（一般会被子类重写）
+    join(timeout=None)            程序挂起，知道线程结束；如果给了timeout，则最多阻塞timeout秒
+      getName()					   返回线程的名字
+     setName(name)				   设置线程的名字
+      isAlive()			        布尔标志，表示这个线程是否还在运行中
+      isDaemon()				返回线程的daemon标志
+    setDaemon(daemonic)			把线程的daemon标志设为daemonic（一定要在调用start()函数前调用）
