@@ -1,0 +1,7 @@
+					threading模块的函数
+	函数							描述
+    activeCount()					当前活动的线程对象的数量
+    currentThread()					   返回当前线程对象
+    enumerate()						返回当前活动现成的列表
+    settrace(func)					为所有线程设置一个跟踪函数
+    setprofile(func)					为所有线程设置一个profile函数
