@@ -1,0 +1,19 @@
+>>> record = ('shu', '25', 'single', 'wanttofuck')
+>>> name, age, *olg = record
+>>> *olg
+File "<stdin>", line 1
+SyntaxError: can't use starred expression here
+>>> olg
+['single', 'wanttofuck']
+
+无论olg中有多少个对象，olg的类型一定是列表
+星号表达式也能用在列表的开始部分
+
+*trailing_qtrs, current_qtr = sales_record
+trailing_avg = sum(trailing_qtrs) / len(trailing_qtrs)
+
+>>> *trailing, current = [1, 2, 2, 12, 1, 4, 6]
+>>> current
+6
+>>> trailing
+[1, 2, 2, 12, 1, 4]
