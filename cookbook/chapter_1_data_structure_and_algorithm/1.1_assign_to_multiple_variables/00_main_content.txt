@@ -1,0 +1,26 @@
+>>> data = ['ACME', 50, 91.1, (2012, 12, 21)]
+>>> name, shares, price, date = data
+>>> name
+'ACME'
+>>> shares
+50
+>>> date
+(2012, 12, 21)
+>>> name, shares, price, (year, mon, day) = data
+>>> year
+2012
+
+如果变量不匹配会产生ValueError异常
+
+这种解压赋值可以用在任何可迭代对象上面，而不仅仅是列表或者元组。包括字符串，文件对象，迭代器和生成器
+
+>>> s = 'hello'
+>>> a, b, c, d, e = s
+>>> a
+'h'
+>>> b
+'e'
+>>> c
+'l'
+>>> e
+'o'
