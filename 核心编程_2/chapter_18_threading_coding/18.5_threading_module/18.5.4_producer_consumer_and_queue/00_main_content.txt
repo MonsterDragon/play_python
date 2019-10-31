@@ -1,0 +1,10 @@
+						通用队列模块属性
+	函数								描述
+Queue模块函数
+       queue(size)						创建一个大小为size的queue对象
+Queue对象函数
+       qsize()					返回队列大小（由于再返回的时候，队列可能被其他线程修改， 所以这个值是近似值）
+       empty()						      如果队列为空返回True，否则返回False
+       full()						      如果队列已满返回True，否则返回False
+       put(item, block=0)			把item翻到队列中，如果给了block（不为0），函数会一直阻塞到队列中有空间为止
+       get(block=0)			        从队列中取一个对象，如果给了block（不为0）， 函数会一直阻塞到队列中有对象为止
