@@ -1,0 +1,31 @@
+collections -- 容器数据类型
+这个模块实现了特定目标的容器，以提供Python标准内建容器dict, list, set和tuple的替代选择
+
+class collections.deque([Iterable[, maxlen]])
+
+deque -- 类似列表的容器，实现了在两端快速添加和弹出
+deque队列是由栈或者queue队列生成的(double-ended queue).deque支持线程安全，内存高效添加（append）和弹出（pop），两个方向的大概开销都是O(1)复杂度
+
+如果maxlen没有指定或者是None，deques可以增长到任意长度。否则，deque就限定到指定最大长度。一旦限定长度的deque满了，当新项加入时，同样数量的项就从另一端弹出。限定长度deque提供类似Unix filter tail的功能
+
+双向队列（deque）对象支持一下方法：
+
+append(x)
+	添加到右端
+
+appendleft(x)
+	添加x到左端
+clear()
+	移除所有元素，使其长度为0
+copy()
+	创建一份浅拷贝
+count(x)
+	计算deque中个数
+pop()
+	移去并且返回一个元素，deque最右侧的哪一个。如果没有元素的话，就升起IndexError索引错误
+popleft()
+	移去并且返回一个元素，deque最左侧的那一个。如果没有元素的话，就升起 IndexError 索引错误
+remove(value)
+	移去找到的第一个 value。 如果没有的话就升起 ValueError
+reverse()
+	将deque逆序排列。返回 None
