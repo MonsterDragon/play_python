@@ -16,3 +16,5 @@
 
 zip()创建了一个迭代器，它的内容只能被消费一次
 利用zip()的解决方案是通过将字典的键值对反转为值键对序列来解决这个问题
+
+prices[min(prices, key=lambda k: prices[k])]
