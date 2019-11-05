@@ -1,0 +1,18 @@
+想在字典上对数据执行各式各样的计算
+
+>>> prices = {"ACME": 45.23, "AAPL": 612.77, "IBM": 205.55}
+>>> zip(prices.values())
+<zip object at 0x7fc4d681b788>
+>>> print(zip(prices.values()))
+<zip object at 0x7fc4d681b888>
+>>> list(zip(prices.values()))
+[(45.23,), (612.77,), (205.55,)]
+>>> list(zip(prices.values(), prices.keys()))
+[(45.23, 'ACME'), (612.77, 'AAPL'), (205.55, 'IBM')]
+>>> min(zip(prices.values(), prices.keys()))
+(45.23, 'ACME')
+>>> sorted(zip(prices.values(), prices.keys()))
+[(45.23, 'ACME'), (205.55, 'IBM'), (612.77, 'AAPL')]
+
+zip()创建了一个迭代器，它的内容只能被消费一次
+利用zip()的解决方案是通过将字典的键值对反转为值键对序列来解决这个问题
