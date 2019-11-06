@@ -1,0 +1,27 @@
+我们的代码已经变得无法阅读，到处都是硬编码的切片索引，我们想将它们清理干净
+
+>>> cost = int(record[20:23]) * float(record[40:46])
+>>> cost
+51325.0
+>>> SHARES = slice(20, 23)
+>>> PRICE = slice(40, 46)
+>>> cost = int(record[SHARES]) * float(record[PRICE])
+>>> cost
+51325.0
+
+Type "help", "copyright", "credits" or "license" for more information.
+>>> a = slice(2, 10, 3)
+>>> a
+slice(2, 10, 3)
+>>> a.start
+2
+>>> a.stop()
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not callable
+>>> a.stop
+10
+>>> dir(a)
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'indices', 'start', 'step', 'stop']
+>>> a.step
+3
