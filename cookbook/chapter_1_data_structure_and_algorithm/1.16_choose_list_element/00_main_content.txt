@@ -1,0 +1,11 @@
+问题：序列中含有一些数据，需要提取其中的值或根据某些标准对序列做删减
+
+[n for n in list if n > 0] 列表生成式
+
+(n for n in list if n > 0) 生成器生成式
+
+问题：用新值替换掉不满足标准的值，而不是丢弃它们
+[n if n > 0 else 3 for n in list]
+
+问题：想把对一个序列的筛选结构施加到另一个相关的序列上
+itertools.compress()
