@@ -1,0 +1,13 @@
+问题：我们想创建一个字典，其本身是另一个字典的子集
+方法：字典推导式
+
+>>> p1 = {key: value for key, value in prices.items() if value>200}
+dict((key, value) for key, value in prices.items() if value>200)
+>>> p1
+{'AAPL': 612.78, 'IBM': 205.55}
+
+tech_names = {'AAPL', 'IBM', 'HPQ', 'MSFT'}
+p2 = {key: value for key, value in prices.items() if key in tech_names}
+p2 = {key: prices[key] for key in prices.keys() & tech_names}
+
+
