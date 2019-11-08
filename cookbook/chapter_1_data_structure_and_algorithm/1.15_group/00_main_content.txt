@@ -1,0 +1,6 @@
+问题：有一系列的字典或对象实例，想根据某个特定的资源来分组迭代数据
+方法：itertools.groupby()函数
+
+问题：只是简单地根据日期将数据分组到一起，放进一个大的数据结构中以允许进行随机访问
+方法：from collections import defaultdict
+defaultlist(list)
