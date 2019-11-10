@@ -1,0 +1,51 @@
+问题：我们有多个字典或映射，想在逻辑上将它们合并为一个单独的映射结构，以此执行某些特定的操作，比如查找值或检查键是否存在
+方法：collections.ChainMap()
+>>> from collections import ChainMap
+>>> a = {'x': 1, 'z': 3}
+>>> b = {'y': 2, 'z': 4}
+>>> c = ChainMap(a, b)
+>>> c
+ChainMap({'x': 1, 'z': 3}, {'y': 2, 'z': 4})
+>>> c['x']
+1
+>>> c['y']
+2
+>>> c['z']
+3
+讨论：
+ChainMap可以接受多个映射然后再逻辑上使它们表现为一个单独的映射结构。但是这些映射在字面上并不会合并在一起。相反ChainMap只是简单地维护一个鸡柳底层映射关系的列表，然后重定义常见的字典操作来扫描这个列表
+>>> len(c)
+3
+>>> list(c.keys())
+['y', 'z', 'x']
+>>> c.keys()
+KeysView(ChainMap({'x': 1, 'z': 3}, {'y': 2, 'z': 4}))
+>>> list(c.values())
+[2, 3, 1]
+如果有重复的话，那么这里会采用第一个映射中所对应的值。因此，例子中的c['z']总是引用第一个字典的值
+修改映射的操作总会作用在列出的第一个映射结构上
+>>> values = ChainMap()
+>>> values['x'] = 1
+>>> values = values.new_child()
+>>> values
+ChainMap({}, {'x': 1})
+>>> values['x'] = 2
+>>> values
+ChainMap({'x': 2}, {'x': 1})
+>>> values = values.new_child()
+>>> values['x'] = 3
+>>> values
+ChainMap({'x': 3}, {'x': 2}, {'x': 1})
+>>> values['x']
+3
+>>> values
+ChainMap({'x': 3}, {'x': 2}, {'x': 1})
+>>> values = values.parents
+>>> values['x']
+2
+>>> values = values.parents
+>>> values['x']
+1
+>>> values
+ChainMap({'x': 1})
+合并字典的方式可以使用update()函数，但是update会创建一个新的字典。如果原始字典的value被更改，这不会体现在新update的字典上。而且，update方法会将重复的键值对覆盖
