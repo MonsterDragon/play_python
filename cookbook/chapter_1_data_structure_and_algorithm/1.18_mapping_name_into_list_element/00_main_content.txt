@@ -1,0 +1,21 @@
+问题：通过索引来访问列表和元组。但是我们希望可以通过名称来访问元素，以此减少结构中对位置的依赖性
+解决方法：collections.namedtuple()（命名元组）
+实际上这个方法是一个工厂方法，他返回的是Python中标准元组类型的子类
+命名元组的主要作用在于将代码同它所控制的元素位置间解耦。
+例如从数据库中拿到所有表格数据，但是该数据并不包括字段
+>>> from collections import namedtuple
+>>> Subcribe = namedtuple('Sub', ['addr', 'joined'])
+>>> sub = Subcribe(addr='haerbin', joined='2016')
+>>> sub
+Sub(addr='haerbin', joined='2016')
+>>> sub.addr
+'haerbin'
+>>> len(sub)
+2
+>>> addr, joined = sub
+>>> addr
+'haerbin'
+>>> joined
+'2016'
+
+nametuple的一种可能用法是作为字典的替代，后者需要更多的空间存储。但是请注意，与字典不同的是，namedtuple是不可变类型。namedtuple所定义的每个属性只能有一个值
