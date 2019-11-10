@@ -1,0 +1,30 @@
+问题：我们需要调用一个换算（reducing）函数（例如sun()/min()/max()），但首先得对数据做转换或筛选
+方法：
+1、在函数参数中使用生成器表达式
+
+# 计算平方和
+>>> nums = [1, 2, 4, 2, 9]
+>>> s = sum(x * x for x in nums)
+>>> s
+106
+
+# Detemine if any .py files exit in a directory
+import os
+files = os.listdir('dirname')
+if any(name.endswith('.py') for name in files):
+    print("OK")
+else
+    print("False")
+
+# Output a tuple as csv
+s = ('Ac', 96, 89.2)
+print(','.join(str(i) for i in s))
+Ac,96,89.2
+
+# Data reduction across fields of a data structure
+portfolio = [{'name':'GOOG', 'shares': 50}, {'name':'YHOO', 'shares': 75}, {'name':'AOL', 'shares': 20}, {'name':'SCOX', 'shares': 65}]
+print(min(i['shares'] for i in portfolio))
+print(min(portfolio, key=lambda k: k['shares']))
+print(sorted(portfolio, key=lambda K: k['shares']))
+
+这种解决方案展示了当吧生成器表达式作为函数的单独参数时在语法上的一些微妙之处（即不需重复使用括号）
