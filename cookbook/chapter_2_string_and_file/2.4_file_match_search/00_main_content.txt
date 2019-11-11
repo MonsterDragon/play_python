@@ -1,0 +1,63 @@
+问题：我们想要按照特定的文本模式进行匹配或查找
+方法：
+1、如果想要匹配只是简单的文字，那么通常只需要用基本的字符串方法就可以了比如：str.find() str.startswith() str.endswith()
+>>> test = "yeah, but, no, yeah, but ,no ,no, yeah"
+>>> test.find('yeah')
+0
+>>> test.find('no')
+11
+str.find()找到匹配项的索引
+2、对于更复杂的匹配则需要使用正则表达式以及re模块
+>>> import re
+>>> text1 = '11/27/2012'
+>>> text2 = 'Nov 27, 2012'
+>>> if re.match(r'\d+/\d+/\d+', text1):
+...     print(True)
+... else:
+...     print(Flase)
+... 
+True
+如果针对同一种模式做多次匹配，那么通常会先将正则表达式模式预编译成一个模式对象。
+>>> datepat = re.compile(r'\d+/\d+/\d+')
+>>> if datepat.match(text1):
+...     print(True)
+... else:
+...     print(False)
+... 
+True
+match()方法总是尝试在字符串的开头找到匹配项。如果乡镇对整个文本搜索出所有的匹配项，那么就应该使用findll()方法
+>>> text = 'Today is 11/27/2012. PyCon starts 3/13/2013'
+>>> datepat.findall(text)
+['11/27/2012', '3/13/2013']
+当定义正则表达式时，我们厂会将部分模式用括号抱起来的方式引入捕获组
+>>> datepat = re.compile(r'(\d+)/(\d+)/(\d+)')
+捕获组通常能简化后续对匹配文本的处理，因为每个组的内容都可以单独提取出来
+>>> datepat = re.compile(r'(\d+)/(\d+)/(\d+)')
+>>> m = datepat.match('11/3/2018')
+>>> m
+<_sre.SRE_Match object; span=(0, 9), match='11/3/2018'>
+>>> m.group(0)
+'11/3/2018'
+>>> m.group(1)
+'11'
+>>> m.group(2)
+'3'
+>>> m.group(3)
+'2018'
+>>> m.groups()
+('11', '3', '2018')
+>>> day, month, year = m.groups()
+>>> day
+'11'
+>>> month
+'3'
+>>> year
+'2018'
+>>> text
+'Today is 11/27/2012. PyCon starts 3/13/2013'
+>>> datepat.findall(text)
+[('11', '27', '2012'), ('3', '13', '2013')]
+findall()方法搜索整个文本并找出所有的匹配选然后将它们以列表的形式返回。如果想以迭代的方式找出匹配项，可以使用finditer()方法
+3、讨论
+当指定模式时我们通常会使用原始字符串，比如r'(\d+)/(\d+)/(\d+)'。这样的自渡船不会对反斜线字符进行转义
+如果打算执行很多匹配或查找操作的话，通常需要先将模式编译然后再重复使用。模块级的函数会对最近编译过的模式做缓存处理，因此这里并不会有巨大的性能差异
