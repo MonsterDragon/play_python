@@ -1,0 +1,23 @@
+问题：我们需要将字符串拆分成不同的字段，但是分隔符在整个字符串中并不一致
+方法：re.split()
+>>> import re
+>>> line = 'asdf fjsk; afed, fejk,asdf,   foo'
+>>> re.split(r'[;,\s]\s*', line)
+['asdf', 'fjsk', 'afed', 'fejk', 'asdf', 'foo']
+将;,\s进行分组再加任意的space字符进行拆分
+讨论：
+re.split()很有用，因为可以为分隔符指定多个模式。分隔符可以是逗号，分号或者空格符。只要找到了对应的模式，无论匹配点的两端是什么字段，整个匹配的结果就成为那个分隔符。最终得到结构是字段列表
+>>> fileds = re.split(r'(;|,|\s)\s*', line)
+>>> fileds
+['asdf', ' ', 'fjsk', ';', 'afed', ',', 'fejk', ',', 'asdf', ',', 'foo']
+>>> values = fileds[::2]
+>>> values
+['asdf', 'fjsk', 'afed', 'fejk', 'asdf', 'foo']
+>>> delimiters = fileds[1::2] + ['']
+>>> delimiters
+[' ', ';', ',', ',', ',', '']
+>>> ''.join(v+d for v, d in zip(values, delimiters))
+'asdf fjsk;afed,fejk,asdf,foo'
+>>> re.split(r'(?:;|,|\s)\s*', line)
+['asdf', 'fjsk', 'afed', 'fejk', 'asdf', 'foo']
+
