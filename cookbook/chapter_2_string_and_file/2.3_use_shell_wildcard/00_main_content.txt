@@ -1,0 +1,22 @@
+问题：当工作在UNIX SHELL下时，我们想使用常见的通配符模式来对文本做匹配
+方法：fnmatch.fnmatch fnmatch.fnmatchcase
+>>> from fnmatch import fnmatch, fnmatchcase
+>>> fnmatch('foo.txt', '*.txt')
+True
+>>> fnmatch('foo.txt', '?oo.txt')
+True
+>>> fnmatch('Dat45.csv', 'Dat[0-9]*')
+True
+>>> names = ['Dat1.csv', 'Dat2.csv', 'config.ini', 'foo.py']
+>>> [name for name in names if fnmatch(name, 'Dat*.csv')]
+['Dat1.csv', 'Dat2.csv']
+如果对于大小写铭感需要使用fnmatchcase
+>>> fnmatchcase('foo.txt', '*.TXT')
+False
+>>> fnmatch('foo.txt', '*.TXT')
+False
+>>> fnmatch('foo.txt', '*.txt')
+True
+>>> fnmatchcase('foo.txt', '*.txt')
+True
+fnmatch所完成的匹配操作优点介乎于简单的字符串方法和全功能的正则表达式之间
