@@ -1,0 +1,12 @@
+问题：我们需要在字符串的揩油和结尾处按照指定的文本模式做检查，例如检查文件的扩展名、URL协议类型
+方法：str.startswith() str.endswith()方法
+>>> import os
+>>> filesname = os.listdir('.')
+>>> filesname
+['.viminfo', 'ycm_build', 'build_gcc_4.8.1', '.pki', '.gitconfig', '.cache', '.virtualenvs', '.python_history', 'gcc-4.8.1', '.vimrc', '.bash_history', '.bashrc', '.rediscli_history', '.bash_logout', '.vim', '.bash_profile', '.tcshrc', '.ssh', 'PyMySQL-0.7.11.tar.gz', 'gcc-4.8.1.tar.gz', '.cshrc']
+>>> [name for name in filesname if name.endswith(('.gz', 'c'))]
+['.vimrc', '.bashrc', '.tcshrc', 'PyMySQL-0.7.11.tar.gz', 'gcc-4.8.1.tar.gz', '.cshrc']
+>>> any(name.endswith('.py') for name in filesname)
+False
+讨论：使用startswith()和endswith()与其他操作结合起来效果会更好
+if any(name.endswith(('.c', '.h')) for name in listdir(dirname)):
