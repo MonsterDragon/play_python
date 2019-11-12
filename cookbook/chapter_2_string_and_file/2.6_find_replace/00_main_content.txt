@@ -1,0 +1,10 @@
+问题：我们需要可以不区分大小写的方式在文本中进行查找，可能还需要做替换
+方法：使用re模块中的re.IGNORECASE标记
+>>> text = 'UPPER PYTHON, lower python, Mixed Python'
+>>> re.findall(r'python', text)
+['python']
+>>> re.findall(r'python', text, flags=re.IGNORECASE)
+['PYTHON', 'python', 'Python']
+>>> re.sub('python', 'sub', text, flags=re.IGNORECASE)
+'UPPER sub, lower sub, Mixed sub'
+如何使替换的文本与匹配的文本大小写相互吻合
