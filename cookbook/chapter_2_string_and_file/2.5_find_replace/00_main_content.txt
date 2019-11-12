@@ -1,0 +1,32 @@
+问题：对字符串中的文本做查找和替换
+方法：str.replace()
+>>> test='yaeh, gut, but, non, no, yeah'
+>>> test.replace('yeah', 'y')
+'yaeh, gut, but, non, no, y'
+针对更复杂的模式，可以使用re模块中的sub()方法
+>>> text = 'Today is 11/27/2012, Pycon is 3/13/2012'
+>>> import re
+>>> re.sub(r'(\d+)\/(\d+)\/(\d+)', r'\3-\1-\2', text)
+'Today is 2012-11-27, Pycon is 2012-3-13'
+sub()的第一个参数是匹配的模式，第二个参数是要替换上的模式。类似“\3”这样的反斜线加数字的符号代表着模式中捕获组的索引
+如果打算用相同的模式执行重复替换，可以考虑先将模式编译已获得更好的性能
+>>> import re
+>>> datepat = re.compile(r'(\d+)\/(\d+)\/(\d+)')
+>>> dateput.sub(r'\3-\1-\2', text)
+>>> datepat.sub(r'\3-\1-\2', text)
+'Today is 2012-11-27, Pycon is 2012-3-13'
+对于更复杂的情况，可以指定一个替换回调函数
+>>> from calendar import month_abbr
+>>> def change_date(m):
+...     mon_name = month_abbr[int(m.group(1))]
+...     return '{} {} {}'.format(m.group(2), mon_name, m.group(3))
+... 
+>>> datepat.sub(change_date, text)
+'Today is 27 Nov 2012, Pycon is 13 Mar 2012'
+替换回调函数的输入参数是一个匹配对象，由match()或find()返回。用.group()方法来提取匹配中特定的部分。这个函数应该返回替换后的文本
+除了得到替换后的文本外，如果还想知道一共完成了几次替换，可以使用re.subn()方法
+>>> newtext, n = datepat.subn(r'\3-\1-\2', text)
+>>> n
+2
+>>> newtext
+'Today is 2012-11-27, Pycon is 2012-3-13'
