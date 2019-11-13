@@ -1,0 +1,39 @@
+1、问题：某些物料的脚本小子在web页面表单中填入了“python”这样的文本，我们想以某种方式将其清理掉
+2、方法：str.translate()
+文本过滤和清理涵盖的范围非常广泛，设计文本解析和数据处理方面的问题
+ord() 函数是 chr() 函数（对于 8 位的 ASCII 字符串）的配对函数，它以一个字符串（Unicode 字符）作为参数，返回对应的 ASCII 数值，或者 Unicode 数值。
+>>> s = 'pýtĥöñ\fis\tawesome\r\n'
+>>> remap = {}
+>>> remap = {ord('\t'): '', ord('\f'): '', ord('\r'): None}
+>>> a = s.translate(remap)
+>>> a
+'pýtĥöñisawesome\n'
+>>> remap = {ord('\t'): ' ', ord('\f'): ' ', ord('\r'): None}
+>>> a = s.translate(remap)
+>>> a
+'pýtĥöñ is awesome\n'
+我们把所有的Unicode组合字符都去掉
+>>> import unicodedata
+>>> import sys
+>>> cmb_chrs = dict.fromkeys(c for c in range(sys.maxunicode) if unicodedata.combining(chr(c)))
+>>> b = unicodedata.normalize('NFD', a)
+>>> b
+'pýtĥöñ is awesome\n'
+>>> b.translate(cmb_chrs)
+'python is awesome\n'
+我们使用dict.fromkeys()方法构建了一个将每个Unicode组合字符都映射为None的字典
+>>> digitmap = {c: ord('0') for c in range(sys.maxunicode) if unicodedata.category(chr(c)) == 'Nd'}
+>>> len(digitmap)
+580
+>>> x = '\u0661\u0662\u0663'
+>>> x.translate(digitmap)
+'000'
+另一种用来清理文本的计数设计I/O解码盒编码。大致思路是首先对文本作初步的清理，然后通过结合encode()和decode()操作来修改或清理文本
+>>> a
+'pýtĥöñ is awesome\n'
+>>> b = unicodedata.normalize('NFD', a)
+>>> b
+'pýtĥöñ is awesome\n'
+>>> b.encode('ascii', 'ignore').decode('ascii')
+'python is awesome\n'
+
