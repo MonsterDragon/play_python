@@ -1,0 +1,13 @@
+1、问题：我们正在用正则表达式处理文本，但是需要考虑处理Unicode字符
+2、方法：
+默认情况下re模块已经对某些Unicode字符类型有了基本的认识。例如\d已经可以匹配任意Unicode数字字符了
+>>> import re
+>>> num = re.compile('\d+')
+>>> num.match('123')
+<_sre.SRE_Match object; span=(0, 3), match='123'>
+>>> num.match('\u0661\u0662\u0663')
+<_sre.SRE_Match object; span=(0, 3), match='١٢٣'>
+如果需要在模式字符串中包含指定的Unicode字符，可以针对Unicode字符使用转义序列
+>>> arabic = re.compile('[\u0600-\u06ff\u0750-\u077f\u08a0-\u08ff]+')
+当不区分大小写时考虑出现什么行为
+pat = re.compile('stra\u00dfe', re.IGNORECASE)
