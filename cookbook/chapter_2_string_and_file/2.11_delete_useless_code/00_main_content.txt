@@ -1,0 +1,32 @@
+1、问题：我们想在字符串的开始、结尾和中间去掉不需要的字符，比如说空格符
+2、方法：strip()
+strip()方法可以用来从字符串的开始和结尾处去掉字符。lstrip()和rstrip()可分别从左或从右侧开始执行取出字符的操作。默认情况下这些方法去除的是空格符，但也可以指定其他的字符
+>>> s = 'hello world \n'
+>>> s.strip()
+'hello world'
+>>> s.lstrip()
+'hello world \n'
+>>> s.rstrip()
+'hello world'
+>>> t = '------hello======'
+>>> t.lstrip('-')
+'hello======'
+>>> t.rstrip('=')
+'------hello'
+>>> t.strip('-=')
+'hello'
+需要注意的是去除字符的操作并不会对位于字符串中间的任何文本起作用
+>>> s = '      hello    world        '
+>>> s.strip()
+'hello    world'
+如果要去掉中间的空格则需要使用
+>>> import re
+>>> re.sub(r'\s+', '', s)
+'helloworld'
+>>> s.replace(' ', '')
+'helloworld'
+我们通常会遇到的情况是将去除字符的操作同某些迭代操作结合起来，比如从文件中读取文本行
+with open(filname, 'r') as f:
+    lines = (line.strip() for line in f)
+    for line in lines:
+更高级的strip()方法是translate()
