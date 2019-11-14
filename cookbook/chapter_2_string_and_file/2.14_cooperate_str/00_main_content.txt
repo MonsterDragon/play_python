@@ -1,0 +1,30 @@
+1、问题：我们想将许多小字符串合并成一个大的自渡船
+2、方法：join()
+>>> parts = ['Is', 'Chicago', 'Not', 'Chigcago']
+>>> ''.join(parts)
+'IsChicagoNotChigcago'
+>>> ' '.join(parts)
+'Is Chicago Not Chigcago'
+如果想连接一些字符串，使用“+”就可以了
+>>> a = 'Is Chicago'
+>>> b = 'Not Chicago'
+>>> a + ' ' + b
+'Is Chicago Not Chicago'
++操作符同样可以被format()方法替代
+>>> print('{} {}'.format(a, b))
+Is Chicago Not Chicago
+3、讨论
++=操作每次都会创建一个新的字符串对象，这种方式比join()方法要慢很多
+>>> ' '.join(i for i in parts)
+'Is Chicago Not Chigcago'
+>>> ' '.join(parts)
+'Is Chicago Not Chigcago'
+sep：分割值与值，默认是一个空格
+print(a, b, c, sep=':')
+如果我们编写的代码要从许多短字符串中构建输出，则应该考虑编写生成器函数，通过yield关键字生成字符串片段
+def sample():
+    yield 'Is'
+    yield 'Chicagp'
+    yield 'Not'
+    yield 'Not Chicago'
+
