@@ -1,0 +1,19 @@
+1、问题：我们有一些很长的字符串，想将它们重新格式化，是的它们按照用户指定的列数来显示
+2、方法：使用textwrap模块来重新格式化文本的输出
+>>> import textwrap
+>>> print(textwrap.fill(s, 70))
+Look into my eyes, look into my eyes, the eyes, the, eyes,
+>>> print(textwrap.fill(s, 40))
+Look into my eyes, look into my eyes,
+the eyes, the, eyes,
+>>> print(textwrap.fill(s, 40, initial_indent=' '))
+Look into my eyes, look into my eyes,
+the eyes, the, eyes,
+>>> print(textwrap.fill(s, 40, subsequent_indent=' '))
+Look into my eyes, look into my eyes,
+ the eyes, the, eyes,
+3、讨论：
+textwrap模块能够以简单直接的方法对文本格式做整理使其适合于打印——尤其适当希望输出结构能很好地显示在终端上时。关于终端尺寸的到小，可以通过os.get_terminal_size()来获取
+>>> import os
+>>> os.get_terminal_size()
+os.terminal_size(columns=67, lines=23)
