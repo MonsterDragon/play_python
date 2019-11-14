@@ -1,0 +1,38 @@
+1、问题：我们需要以某种方式将文本做格式化处理
+2、方法：str.ljust() str.rjust() str.center()
+>>> text = 'Hello world'
+>>> text.ljust(20)
+'Hello world         '
+>>> text.rjust(20)
+'         Hello world'
+>>> text.center(20)
+'    Hello world     '
+所有的这些方法都可以接受一个可选的填充字符
+>>> text.ljust(20, '=')
+'Hello world========='
+>>> text.center(20, '*')
+'****Hello world*****'
+format()函数也可以用来轻松完成对齐的任务。需要做的就是合理利用'<' '>' '^'以及一个期望的宽度值
+>>> format(text, '>20')
+'         Hello world'
+>>> format(text, '<20')
+'Hello world         '
+>>> format(text, '^20')
+'    Hello world     '
+如果想包含空格之外的填充字符，可以在对齐字符之前指定
+>>> format(text, '=>20')
+'=========Hello world'
+>>> format(text, '=<20')
+'Hello world========='
+>>> format(text, '=^20')
+'====Hello world====='
+当格式化多个值时，这些格式化代码也可以用在format()方法中
+>>> '{:>10s} {:>10s}'.format('hello', 'world')
+'     hello      world'
+format()的好处之一是他并不是特定于自渡船的。他能作用于任何值
+>>> x = 1.2345
+>>> format(x, '>10')
+'    1.2345'
+>>> format(x, '>10.2f')
+'      1.23'
+
