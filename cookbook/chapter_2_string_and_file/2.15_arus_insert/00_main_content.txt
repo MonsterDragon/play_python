@@ -1,0 +1,37 @@
+1、问题：我们想创建一个字符串，其中嵌入的变量名称会以变量的字符串值形式替换掉
+2、方法：format()
+>>> s = '{name} has {n} messages'
+>>> s.format(name='Guido', n=37)
+'Guido has 37 messages'
+如果被替换的值确实能在变量中找到，则可以将format_map()和vars()联合起来使用
+format_map仅使用于字符串格式中可变数据参数来源于字典等映射关系数据时才可以使用
+>>> vars()
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'text': 'Hello world', 'x': 1.2345, 'parts': ['Is', 'Chicago', 'Not', 'Chigcago'], 'a': 'Is Chicago', 'b': 'Not Chicago', 'c': 'aa', 's': '{name} has {n} messages'}
+>>> name = 'shuzhan'
+>>> n = 37
+>>> s.format_map(vars())
+'shuzhan has 37 messages'
+vars()也可以作用在字典上
+>>> class info:
+...     def __init__(self):
+...         self.name = 'shuzhan'
+...         self.n = 29
+... 
+>>> a = info()
+>>> s.format_map(vars(a))
+'shuzhan has 29 messages'
+format和format_map的缺点是无法优雅的处理缺少某个值的情况。避免穿线这种情况的一种方法就是单独定义一个带有__missing__()方法的字典类
+class safesub(dict):
+    def __missing__(self, key):
+        return '{' + key + '}'
+>>> del n
+>>> s.format_map(safesub(vars()))
+'shuzhan has {n} messages'
+如果发现自己在代码中常常需要执行这些步骤，则可以将替换变量的过程隐藏在一个小型功函数内，这里采用一种称之为“frame hack”的技巧import sys
+def sub(text):
+    return text.format_map(safesub(sys._getframe(1).f_locals))
+3、讨论
+>>> n = 29
+>>> '{name} has {n} messages'.format_map(vars())
+'shuzhan has 29 messages'
+sub函数使用了sys._getframe(1)来返回调用方的栈帧。通过访问属性f_locals来得到局部变量
