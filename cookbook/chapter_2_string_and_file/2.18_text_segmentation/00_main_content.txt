@@ -1,0 +1,44 @@
+1、问题：我们有一个字符助残，想从左到右将它解析为标记流
+2、方法：
+要完成分词处理，需要做的不仅仅只是匹配模式。我们还需要有某种方法来识别出模式的类型
+要完成这样的分词处理，第一步是定义出所有可能的标记，包括空格。这可以通过正则表达式中的命名捕获组来实现
+>>> import re
+>>> NAME = r'(?P<NAME>[a-zA-Z_][a-zA-Z_0-9]*)'
+>>> NUM = r'(?P<NUM>\d+)'
+>>> PLUS = r'(?P<PLUS>\+)'
+>>> TIMES = r'(?<TIMES>\*)'
+>>> TIMES = r'(?P<TIMES>\*)'
+>>> Eq = r'(?P<EQ>=)'
+>>> WS = r'(?P<WS>\s+)'
+>>> master_pat = re.compile('|'.join([NAME, NUM, PLUS, TIMES, Eq, WS]))
+在这些正则表达式中，形如?P<NAME>这样的约定是用来将名称分配给该模式的
+接下来我们使用模式对象的scanner()方法来完成分词操作。该方法会创建一个扫描对象，在给定的文本中重复调用match(),一次匹配一个模式
+>>> scanner = master_pat.scanner('foo = 42')
+>>> scanner.match()
+<_sre.SRE_Match object; span=(0, 3), match='foo'>
+>>> _.lastgroup, _.group()
+('NAME', 'foo')
+>>> scanner.match()
+<_sre.SRE_Match object; span=(3, 4), match=' '>
+>>> _.lastgroup, _.group()
+('WS', ' ')
+>>> scanner.match()
+<_sre.SRE_Match object; span=(4, 5), match='='>
+>>> _.lastgroup, _.group()
+('EQ', '=')
+>>> scanner.match()
+<_sre.SRE_Match object; span=(5, 6), match=' '>
+>>> _.lastgroup, _.group()
+('WS', ' ')
+>>> scanner.match()
+<_sre.SRE_Match object; span=(6, 8), match='42'>
+>>> _.lastgroup, _.group()
+('NUM', '42')
+>>> scanner.match()
+要利用这项技术并将其转化为代码，我们可以做些清理工作然后轻松地将其包含在一个生成器函数中
+3、讨论
+当进行匹配时，re模块会按照指定的顺序来对模式做匹配。因此，如果碰巧某个模式是另一个较长模式的子串时，就必须确保较长的那个模式要先匹配
+LT = r'(?P<LT><)'
+LE = r'(?P<LE><=)'
+EQ = r'(?P<EQ>=)'
+
