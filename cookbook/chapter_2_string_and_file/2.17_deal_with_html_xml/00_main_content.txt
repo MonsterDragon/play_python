@@ -1,0 +1,11 @@
+1、问题：
+我们想将&entity或&#code这样的HTML或XML实体替换为它们相对应的文本。或者，我们需要生成文本，但是要对特定的字符作转义处理
+2、方法：html.escape()方法
+>>> s = 'Elements are written as "<tag>text</tag>"'
+>>> import html
+>>> print(s)
+Elements are written as "<tag>text</tag>"
+>>> print(html.escape(s))
+Elements are written as &quot;&lt;tag&gt;text&lt;/tag&gt;&quot;
+>>> print(html.escape(s, quote=False))
+Elements are written as "&lt;tag&gt;text&lt;/tag&gt;"
