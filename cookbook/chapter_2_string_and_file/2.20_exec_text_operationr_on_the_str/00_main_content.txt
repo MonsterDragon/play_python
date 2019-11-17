@@ -1,0 +1,72 @@
+1、问题：我们想在字符串上执行常见的文本操作
+2、方法：
+>>> data = b'Hello World'
+>>> data[0:5]
+b'Hello'
+>>> data.startswith(b'Hello')
+True
+>>> data.split()
+[b'Hello', b'World']
+>>> data.replace(b'Hello', b'shuzhan')
+b'shuzhan World'
+
+bytes是不可变字节类型（是字节组成的有序的不可变序列）
+bytearray是可变字节数组（十字街组成的有序的可变序列）
+>>> data = bytearray(b'Hello World')
+>>> data[0:5]
+bytearray(b'Hello')
+>>> type(data)
+<class 'bytearray'>
+>>> data
+bytearray(b'Hello World')
+>>> data.startswith(b'Hello')
+True
+>>> data.split()
+[bytearray(b'Hello'), bytearray(b'World')]
+>>> range(data)
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+TypeError: 'bytearray' object cannot be interpreted as an integer
+>>> for i in data:
+...     print(i)
+... 
+72
+101
+108
+108
+111
+32
+87
+111
+114
+108
+100
+我们可以在字节串上执行正则表达式的模式匹配操作，但是模式本身需要以字节串的形式来指定
+>>> data = b'FOO:BAR,SPAM'
+>>> import re
+>>> re.split(r'[:,]', data)
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+File "/usr/local/python3/lib/python3.6/re.py", line 212, in split
+return _compile(pattern, flags).split(string, maxsplit)
+TypeError: cannot use a string pattern on a bytes-like object
+>>> re.split(rb'[:,]', data)
+[b'FOO', b'BAR', b'SPAM']
+3、讨论
+>>> a = 'Hello World'
+>>> a[0]
+'H'
+>>> a[1]
+'e'
+>>> b = b'Hello World'
+>>> b[0]
+72
+>>> b[1]
+101
+这种语义上的差异会对视图按照字符的方式处理面向字节流数据的程序带来影响
+字节串并没有提供一个漂亮的字符串表示，因此打印结果并不干净利落，除非首先将其解码为文本字符串
+>>> print(b.decode('ascii'))
+Hello World
+如果想在字节串上做任何形式的格式化操作，应该使用普通的文本字符串然后再做编码
+>>> '{:10s} {:10d} {:10.2f}'.format('ACME', 100, 490.1).encode('ascii')
+b'ACME              100     490.10
