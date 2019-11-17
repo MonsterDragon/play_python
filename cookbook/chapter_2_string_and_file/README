@@ -1,0 +1,104 @@
+2.1 针对任意多的分隔符拆分字符串
+	re.split()
+2.2 在字符串的开头或结尾做文本匹配
+	str.startswith()
+	str.endswith()
+2.3 利用shell通配符做字符串匹配
+	from fnmatch import fnmatch, fnmatchchcase
+	fnmatch('Dat45.csv', Dat[0-9]*)
+2.4 文本模式的匹配和查找
+	如果只是相匹配简单的文字
+	str.startswith()
+	str.endswith()
+	str.find()
+	对于更复杂的匹配使用re模块
+	findall()方法搜索整个文本并找出所有匹配项后将它们以列表的形式返回
+	finditer()以迭代的方式找到匹配项
+2.5 查找和替换文本
+	简单的文本模式
+	str.replace()
+	复杂的模式
+	re.sub()
+	如果想知道完成了多少次替换，可以使用re.subn()
+2.6 以不区分大小写的方式对文本做查找和替换
+	使用re模块并且对各种操作都要加上re.IGNORECASE标记
+	re.sub('python', 'snake', text, flags=re.IGNORECASE)
+2.7 定义实现最短匹配的正则表达式
+	re模块的贪婪模式，使用?来使用最短匹配
+	re.compile(r'\"(.*?)\"')
+2.8 编写多行模式的正则表达式
+	在匹配格式化字符串中添加对换行符的支持
+	re.compile(r'(?:.|\n)*?')
+	(?:.|\n)非捕获组，只匹配不捕获
+	re.compile()科技收一个re.DOTALL标记，这使得正则表达式中的(.)可以匹配所有的字符，包括换行符
+	re.compile(r'(?:.)*?')
+2.9 将Unicode文本统一表示为规范形式
+	对于一个比较字符串的程序，同一个文本英语多种不同的表达形式，应该先将文本统一表示为规范形式
+	import unicodedata
+	t1 = unicodedata.normalize('NFC', s1)
+	t2 = unicodedata.normalize('NFC', s2)
+	t1 == t2
+2.10 用正则表达式处理Unicode字符
+	针对Unicode字符使用转义序列
+	re.compile('[\u0600-\u06ff]')
+2.11 从字符串中去掉不需要的字符
+	str.strip()
+	str.lstrip()
+	str.rstrip()
+2.12 文本过滤和清理
+	str.translate()
+	remap = {'a': ' ', 'b': ' ', 'c': None}
+	s.translate(remap)
+2.13 对齐文本字符串
+	str.ljust()
+	str.rjust()
+	str.center()
+	text.ljust(20, '=')
+2.14 字符串连接及合并
+	join()
+	','.join(str(d) for d in data)
+2.15 给字符串中的变量名做插值处理
+	s = '{name} has {n} message'
+	name = 'shuzhan'
+	n = 12
+	s.format_map(vars())
+2.16 以固定的列数重新格式化文本
+	使用textwrap模块来重新格式化文本的输出
+	import textwrap
+	print(textwrap.fill(s, 70))
+	获取终端的尺寸大小
+	import os
+	os.get_terminal_size()
+2.17 在文本中处理HTML和XML文件
+	使用html模块中的escape()方法
+	import html
+	print(html.escape(s, quote=False))
+2.18 文本分词
+	import re
+	NAME = r'(?P<NAME>[a-zA-Z_][a-zA-Z0-9_])'
+	NUM = r'(?P<NAME>\d+)'
+	PLUS = r'(?P<PLUS>\+)'
+	TIMES = r'(?P<TIMES>\*)'
+	EQ = r'(?P<EQ>=)'
+	WS = r'(?P<WS>\s+)'
+	master_pat = re.compile('|'.join([NAME, NUM, PLUS, TIMES, EQ, WS]))
+2.19 编写一个简单的递归下降解析器
+	解析器是如何解析代码的
+	一个语法描述的语言就是用书写规则写的字符串的集合
+	BNF:
+	s := '-' FN | FN
+	FN := DL | DL '.' DL
+	DL := D | D DL
+	D := '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' 
+	EBNF:
+	1 ?：意思是操作符左边的符号（或括号中的一组符号）是可选项（可以出现0到1次）
+	1 *：是指重复0次到多次
+	1 +：是指可以出现一次以上
+	S := '-'? D+ ('.' D+)?
+	D := '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' 
+2.20 在字节串上执行文本操作
+	bytes类型是不可变类型
+	butearray是可变字节数组
+	字节串支持大多数和文本字符串一样的内建操作
+	但是在程序中使用普通的文本字符串就好，不要用字节串
+
