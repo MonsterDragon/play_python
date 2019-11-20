@@ -1,0 +1,57 @@
+NAN表示不可表示的值
+1、问题：我们需要对浮点数的无穷大、负无穷大或NaN（not a number）进行判断测试
+2、方法：
+Python中并没有特殊的语法来表示这些特殊的浮点数值，但是它们可以通过float()来创建
+>>> a = float('inf')
+>>> b = float('-inf')
+>>> c = float('nan')
+>>> a
+inf
+>>> b
+-inf
+>>> c
+nan
+要检测是否出现了这些值，可以使用math.isinf()和math.isnan()函数
+>>> import math
+>>> math.isinf(a)
+True
+>>> math.isinf(c)
+False
+>>> math.isnan(c)
+True
+3、讨论
+无穷大值在数学计算中会进行传播
+>>> a = float('inf')
+>>> a + 45
+inf
+>>> a * 10
+inf
+>>> 10 / a
+0.0
+但是，某些特定的操作会导致未定义的行为并产生NaN的结果
+>>> a = float('inf')
+>>> a/a
+nan
+>>> b = float('-inf')
+>>> a + b
+nan
+NaN会通过所有的操作进行传播，且不会引发任何异常
+>>> c = float('nan')
+>>> c + 23
+nan
+>>> c / 2
+nan
+>>> c * 2
+nan
+>>> math.sqrt(c)
+nan
+有关NaN一个微妙的特性是它们再做比较式从不会被判定为相等
+>>> c = float('nan')
+>>> d = float('nan')
+>>> c == d
+False
+唯一安全的NAN检测是
+>>> math.isnan(c)
+True
+>>> math.isnan(d)
+True
