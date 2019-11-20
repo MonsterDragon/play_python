@@ -1,0 +1,48 @@
+1、问题：我们的代码在同最新的Web认证方案交互时遇到了奇点（singularity）问题，而唯一的解决方案是复平面解决。或者也许只需要利用复数完成一些计算就可以了
+2、方法：complex(real, image)，或者浮点数再加上后缀j
+>>> a = complex(2, 4)
+>>> b = 3 - 5j
+>>> a
+(2+4j)
+>>> b
+(3-5j)
+实部、虚部以及共轭值可以很方便的提取出来
+>>> a.real
+2.0
+>>> b.real
+3.0
+>>> a.imag
+4.0
+>>> a.conjugate
+<built-in method conjugate of complex object at 0x7f04059725f0>
+>>> a.conjugate()
+(2-4j)
+常见的算术操作都适用于复数
+>>> a + b
+(5-1j)
+>>> a * b
+(26+2j)
+>>> a / b
+(-0.4117647058823529+0.6470588235294118j)
+>>> abs(a)
+4.47213595499958
+如果执行有关负数的函数操作，例如求正弦、余弦或平方根，可以使用cmath模块
+>>> import cmath
+>>> cmath.sin(a)
+(24.83130584894638-11.356612711218173j)
+>>> cmath.cos(a)
+(-11.36423470640106-24.814651485634183j)
+>>> cmath.exp(a)
+(-4.829809383269385-5.5920560936409816j)
+3、讨论
+Python中大部分的数学相关的模块都可适用于复数。
+Python中的标准数学函数默认情况下不会产生复数值，因此想这样的值不会意外地出现在代码里
+>>> import math
+>>> math.sqrt(-1)
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: math domain error
+import cmath
+>>> cmath.sqrt(-1)
+1j
+
