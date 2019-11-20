@@ -1,0 +1,37 @@
+1、问题
+编写分数的计算代码
+2、方法：fractions模块
+>>> from fractions import Fraction
+>>> a = Fraction(5, )
+>>> a = Fraction(5, 4)
+>>> a
+Fraction(5, 4)
+>>> b = Fraction(7, 16)
+>>> print(a)
+5/4
+>>> print(b)
+7/16
+>>> print(a+b)
+27/16
+>>> print(a*b)
+35/64
+>>> c = a * b
+>>> c
+Fraction(35, 64)
+>>> c.numerator
+35
+>>> c.denominator
+64
+>>> float(c)
+0.546875
+>>> print(c.limit_denominator)
+<bound method Fraction.limit_denominator of Fraction(35, 64)>
+>>> print(c.limit_denominator(8))
+4/7
+>>> print(float(c.limit_denominator(8)))
+0.5714285714285714
+>>> x = 3.75
+>>> y = Fraction(*x.as_integer_ratio())
+>>> y
+Fraction(15, 4)
+
