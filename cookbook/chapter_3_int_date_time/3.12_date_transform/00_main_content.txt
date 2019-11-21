@@ -1,0 +1,30 @@
+1、问题：我们的代码需要进行简单的时间转换工作，比如将日转换为秒，将消失转换为分钟等
+2、方案：datetime模块
+>>> from datetime import timedelta
+>>> a = timedelta(days=2, hours=6)
+>>> b = timedelta(hours=4.5)
+>>> c = a + b
+>>> c
+datetime.timedelta(2, 37800)
+>>> c.days
+2
+>>> c.seconds
+37800
+>>> c.seconds/3600
+10.5
+>>> c.total_seconds()/3600
+58.5
+如果需要表示特定的日期和时间，可以创建datetime实例并使用标准的数学运算来操纵它
+>>> from datetime import datetime
+>>> a = datetime(2019, 11, 22)
+>>> print(a + timedelta(days=10))
+2019-12-02 00:00:00
+>>> b = datetime(2019, 10, 10)
+>>> d = b - a
+>>> d.days
+-43
+>>> now = datetime.today()
+>>> now
+datetime.datetime(2019, 11, 22, 1, 7, 8, 409219)
+3、讨论
+dateutil模块可以处理有关月份的问题
