@@ -1,0 +1,58 @@
+1、问题：我们想从序列中随机挑选出元素，或者生成随机数
+2、方法：random模块中的各种函数可用于需要随机数和随机选择的场景
+>>> import random
+>>> values = [1, 2, 3, 4, 5, 6]
+>>> random.choice(values)
+3
+>>> random.choice(values)
+4
+>>> random.choice(values)
+2
+>>> random.choice(values)
+5
+>>> random.choice(values)
+6
+>>> random.choice(values)
+5
+随即取出n个元素
+>>> random.sample(values, 2)
+[5, 6]
+>>> random.sample(values, 2)
+[3, 2]
+>>> random.sample(values, 2)
+[5, 6]
+>>> random.sample(values, 3)
+[1, 5, 4]
+>>> random.sample(values, 4)
+[6, 5, 1, 4]
+打乱顺序重新洗牌
+>>> random.shuffle(values)
+>>> values
+[3, 5, 6, 2, 1, 4]
+产生随机数
+>>> random.randint(0, 100)
+88
+>>> random.randint(0, 100)
+43
+>>> random.randint(0, 100)
+38
+>>> random.randint(0, 100)
+42
+产生随机浮点数
+>>> random.random()
+0.1381552092879773
+>>> random.random()
+0.37066455376506846
+>>> random.random()
+0.7570992045649967
+>>> random.random()
+0.7206939335249356
+得到由n个随机比特位所表示的整数
+>>> random.getrandbits(200)
+1103281862544598667002577928847457317299651673041377398867215
+3、讨论
+random模块采用马特赛特旋转算法来计算随机数
+这是一个确定性算法，但是可以通过random.seed()函数来修改初始的种子值
+random.seed()
+random.uniform()可以计算均匀分布值
+random.gauss()可以计算正态分布
