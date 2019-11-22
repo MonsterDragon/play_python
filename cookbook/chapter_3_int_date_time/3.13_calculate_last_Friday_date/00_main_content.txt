@@ -1,0 +1,7 @@
+1、问题：我们希望有一个通用的解决方案能找出一周中上一次出现某天时的日期。比方说上周五是几月几号
+2、方法：datetime模块
+>>> import bydate
+>>> bydate.get_previous_byday('Monday')
+datetime.datetime(2019, 11, 18, 0, 0, 57, 762287)
+3、讨论
+如果要执行大量类似的日期计算，最好安装python-dateutil包
