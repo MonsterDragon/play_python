@@ -1,0 +1,17 @@
+1、我们有一个电话会议在芝加哥时间2012年12月21日上午9:30举行。那么印度班加罗尔的朋友应该在当地时间几点出现才能赶上会议
+2、方法：pytz模块
+>>> from pytz import timezone
+>>> from datetime import datetime
+>>> d = datetime(2012, 12, 21, 9, 30, 0)
+>>> print(d)
+2012-12-21 09:30:00
+>>> central = timezone('US/Central')
+>>> loc_d = central.localize(d)
+>>> loc_d
+datetime.datetime(2012, 12, 21, 9, 30, tzinfo=<DstTzInfo 'US/Central' CST-1 day, 18:00:00 STD>)
+>>> print(loc_d)
+2012-12-21 09:30:00-06:00
+>>> band_d = loc_d.astimezone(timezone('Asia/Shanghai'))
+>>> print(band_d)
+2012-12-21 23:30:00+08:00
+
