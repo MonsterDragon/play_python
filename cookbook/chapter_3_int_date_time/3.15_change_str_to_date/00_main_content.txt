@@ -1,0 +1,20 @@
+1、问题：我们的应用程序接受到字符串形式的临时数据，但是我们想将这些字符串转为datetime对象，对此对它们执行一些费字符串的操作
+2、方法：datetime
+>>> from datetime import datetime
+>>> text="2012-09-20"
+>>> y = datetime.strptime(text, '%Y-%m-%d')
+>>> y
+datetime.datetime(2012, 9, 20, 0, 0)
+>>> z = datetime.now()
+>>> z
+datetime.datetime(2019, 11, 23, 23, 51, 54, 686975)
+>>> diff = z-y
+>>> diff
+datetime.timedelta(2620, 85914, 686975)
+datetime.strptime()方法只会许多格式化代码，比如%Y代表4位数字表示的年份，而%m代表2位数字表示的月份。这些格式化占位符也可以反过来用在将datetime对象转换为字符串上。
+>>> z
+datetime.datetime(2019, 11, 23, 23, 51, 54, 686975)
+>>> nice_z = datetime.strftime(z, '%A %B %d, %Y')
+>>> nice_z
+'Saturday November 23, 2019'
+striptime的函数性能很差，可以自己定义函数
