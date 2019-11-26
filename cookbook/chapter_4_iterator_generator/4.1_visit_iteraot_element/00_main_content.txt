@@ -1,0 +1,34 @@
+1、问题：我们需要处理某个可迭代对象中的元素，但是基于某种原因不能也不想使用for循环
+2、方法：next()函数
+>>> with open('/etc/passwd') as f:
+...     try:
+...         while True:
+...             line = next(f)
+...             print(line)
+...     except StopIteration:
+...         pass
+... 
+root:x:0:0:root:/root:/bin/bash
+
+bin:x:1:1:bin:/bin:/sbin/nologin
+
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+3、讨论
+了解迭代时发生的基本过程
+>>> items = [2, 3, 4]
+>>> it = iter(items)
+>>> next(it)
+2
+>>> next(it)
+3
+>>> next(it)
+4
+>>> next(it)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  StopIteration
+
