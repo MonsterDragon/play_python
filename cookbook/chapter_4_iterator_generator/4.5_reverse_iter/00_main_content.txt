@@ -1,0 +1,16 @@
+1、问题：我们想要反向迭代序列中的元素
+2、方案：使用reversed()
+>>> for i in reversed(a):
+...     print(i)
+... 
+4
+3
+2
+1
+反向迭代只有在待处理的对象拥有可确定的大小，或者对象实现了__reversed__()特殊方法时，才能奏效。如果这两个条件都无法满足，则必须首先将这个对象转换为列表
+f = open('/etc/passwd')
+for file in reversed(list(f)):
+    print(file, end='')
+3、讨论
+通过在类上实现__reversed__()方法来完成反向迭代
+
