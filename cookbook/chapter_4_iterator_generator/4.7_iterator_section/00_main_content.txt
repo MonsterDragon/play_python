@@ -1,0 +1,23 @@
+1、问题：我们想对由迭代器产生的数据做切片处理，但是普通的切片操作符在这里不管用
+2、方法：itertools.islice()
+>>> def count(n):
+...     while True:
+...         yield n
+...         n += 1
+... 
+>>> c = count(0)
+>>> import itertools
+>>> for x in itertools.islice(c, 10, 20):
+...     print(x)
+... 
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+
