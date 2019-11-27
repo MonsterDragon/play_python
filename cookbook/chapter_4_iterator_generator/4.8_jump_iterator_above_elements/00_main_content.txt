@@ -1,0 +1,22 @@
+1、问题：我们想对某个可迭代UI想多迭代处理，但是对于前面几个元素不感兴趣，只想将它们丢弃掉
+2、方法：itertools.dropwhile()
+要想使用它，只要提供一个函数和一个可迭代对象即可。该函数返回的迭代器会丢弃掉序列中的前面的元素，只要他们所提供的函数中返回True即可
+>>> from itertools import dropwhile
+>>> with open('/etc/passwd', 'r') as f:
+...     for line in dropwhile(lambda line: line.startswith('#'), f):
+...         print(line, end='')
+... 
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+itertools.islice()
+>>> from itertools import islice
+>>> items = ['a', 'b', 'c', 1, 4, 2, 5]
+>>> for x in islice(items, 3, None):
+...     print(x)
+... 
+1
+4
+2
+5
+
