@@ -1,0 +1,17 @@
+1、问题：我们想迭代一个序列，但是又想记录下序列中当前处理到的元素索引
+2、方法：enumerate()
+>>> for index, obj in enumerate(my_list):
+...     print(index, obj)
+... 
+0 a
+1 b
+2 c
+如果想打印规范的行号，可以传入一个start参数作为起始索引
+>>> for index, obj in enumerate(my_list, 1):
+...     print(index, obj)
+... 
+1 a
+2 b
+3 c
+3、讨论
+enumerate()返回值示意个enumerate对象实例，它是一个迭代器，可返回连续的元组。元祖返回由一个索引值和对传入的序列调用next()而得到的值组成
