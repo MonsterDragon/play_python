@@ -1,0 +1,5 @@
+03/26/2020 17:47:24 PM - DEBUG - This is a debug log.
+03/26/2020 17:47:24 PM - INFO - This is a info log.
+03/26/2020 17:47:24 PM - WARNING - This is a warning log.
+03/26/2020 17:47:24 PM - ERROR - This is a error log.
+03/26/2020 17:47:24 PM - CRITICAL - This is a critical log.
